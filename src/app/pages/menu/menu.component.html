@@ -1,0 +1,34 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<div class="container-nav">
+    <div class="logo">
+        <a href="#" [routerLink]="'/pages/inicio'"><b>V</b>entadas</a>
+    </div>
+
+    <div class="nav-main">
+        <nav>
+            <ul>
+                <li *ngFor="let p of pages">
+                    <a href="#" [routerLink]="'/' + p.path">{{p.link}}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="iconos">
+        <div class="carrito">
+            <button class="btn-carrito" (click)="irAlCarrito()">
+                <i class="material-icons">shopping_cart</i>
+                <p id="cont">0</p>
+            </button>
+        </div>
+    
+        <div class="cuenta-personal">
+            <button class="btn-cuenta" (click)="irACreacionCuenta()">
+                <i class="material-icons">account_circle</i>
+            </button>
+        </div>
+    </div>
+</div>
