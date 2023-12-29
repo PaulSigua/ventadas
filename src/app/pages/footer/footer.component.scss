@@ -1,0 +1,29 @@
+footer {
+    background-color: #000;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding-top: 15px;
+
+    .redes-sociales {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .red {
+            display: flex;
+            margin: 20px;
+
+            button {
+                cursor: pointer;
+                border: 1px solid rgb(198, 198, 198);
+                border-radius: 5px;
+                color: #fff;
+                background-color: #000;
+            }
+        }
+    }
+}

@@ -12,6 +12,7 @@
     h2{
         padding-top: 80px;
     }
+    
     p {
         
         width: 100%;
@@ -99,7 +100,7 @@
 
 .contenedor-categorias {
     display: flex;
-    width: 100%;
+    width: auto;
     justify-content: center;
     align-items: center;
     background-color: rgb(134, 255, 241);
@@ -120,32 +121,6 @@
 
             &:hover {
                 border: 1px solid rgb(173, 173, 173);
-            }
-        }
-    }
-}
-
-footer {
-    margin-top: 40px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    .redes-sociales {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-
-        .red {
-            display: flex;
-            margin: 20px;
-
-            button {
-                cursor: pointer;
-                border: 1px solid rgb(198, 198, 198);
-                border-radius: 5px;
-                background-color: white;
             }
         }
     }

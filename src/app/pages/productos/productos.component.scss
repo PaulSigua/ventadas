@@ -1,0 +1,101 @@
+.contenedor-categorias{
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    padding: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .texto{
+        background-color: #fff;
+        padding: 20px;
+    }
+
+    .componentes-categorias{
+        background-color: #fff;
+        padding-block-end: 40px;
+    }
+
+    .categorias{
+        display: flex;
+        justify-content: center;
+        background-color: #5e89ff;
+        margin-left: 30px;
+        margin-right: 30px;
+        padding-right: 20px;
+        border-radius: 10px;
+
+        .btns{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button{
+                background-color: #5e89ff;
+                margin: 20px;
+                border: 0px;
+                color: #ffffff;
+                cursor: pointer;
+                font-size: 20px;
+            }
+
+            input{
+                padding: 5px;
+                border-top-left-radius: 10px;
+                border-end-start-radius: 10px;
+                border: 1px solid #bfbfbf;
+            }
+
+            .buscador{
+                border-bottom-right-radius: 10px;
+                border-top-right-radius: 10px;
+                background-color: #ffffff;
+                color: #000000;
+                margin-left: 0px;
+            }
+        }
+    }
+}
+
+.contenedor-productos {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .productos {
+        margin: 10px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .producto-margen {
+            border: 1px solid rgb(212, 212, 212);
+            border-radius: 10px;
+
+            .producto-text{
+                background-color: #bfbfbf;
+            }
+
+            .contenedor-img {
+                background-color: white;
+            }
+
+            &:hover {
+                border: 1px solid rgb(181, 181, 181);
+            }
+        }
+
+        button{
+            background-color: #5e89ff;
+            padding: 5px;
+            border-radius: 10px;
+            margin: 5px;
+            width: 200px;
+            color: #fff;
+        }
+    }
+}
