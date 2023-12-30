@@ -13,17 +13,24 @@ footer {
         align-items: center;
         text-align: center;
 
-        .red {
-            display: flex;
-            margin: 20px;
-
-            button {
-                cursor: pointer;
-                border: 1px solid rgb(198, 198, 198);
-                border-radius: 5px;
-                color: #fff;
-                background-color: #000;
-            }
-        }
+       
     }
+}
+
+.social-btn {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.icon {
+    margin: 5px;
 }

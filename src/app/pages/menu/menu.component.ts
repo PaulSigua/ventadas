@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,20 +9,27 @@ import { Router } from '@angular/router';
 export class MenuComponent {
 
   pages = [
-    {link: 'Inicio', path: 'pages/inicio'},
-    {link: 'Productos', path: 'pages/productos'},
-    {link: 'Nosotros', path: 'pages/nosotros'},
-    {link: 'Contactanos', path: 'pages/contactanos'},
+    { link: 'Inicio', path: 'pages/inicio' },
+    { link: 'Productos', path: 'pages/productos' },
+    { link: 'Nosotros', path: 'pages/nosotros' },
+    { link: 'Contactanos', path: 'pages/contactanos' },
   ]
 
-  constructor(private router: Router){}
+  isScrolled = false;
 
-  irAlCarrito(){
+  constructor(private router: Router) { }
+
+  irAlCarrito() {
     this.router.navigate([('pages/carrito')]);
   }
 
 
-  irACreacionCuenta(){
+  irACreacionCuenta() {
     this.router.navigate([('pages/login')]);
+  }
+
+  @HostListener('window:scroll', [])
+  windownScroll() {
+    this.isScrolled = window.scrollY > 0;
   }
 }

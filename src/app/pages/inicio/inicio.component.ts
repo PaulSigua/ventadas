@@ -9,7 +9,11 @@ import { Router } from '@angular/router';
 })
 export class InicioComponent {
 
-  constructor(private router: Router){}
+  constructor(private router: Router){
+    window.scrollTo({
+      top: 0
+    })
+  }
 
   irAproductos(){
     this.router.navigate([('pages/productos')]);

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class ProductosComponent {
 
+  constructor(){
+    window.scrollTo({
+      top: 0
+    })
+  }
 }
