@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class CarritoComponent {
 
+  constructor(){
+    window.scrollTo({
+      top: 0
+    })
+  }
 }

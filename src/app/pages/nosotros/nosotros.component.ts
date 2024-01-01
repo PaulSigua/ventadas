@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class NosotrosComponent {
 
+  constructor(){
+    window.scrollTo({
+      top: 0
+    })
+  }
 }

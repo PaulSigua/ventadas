@@ -12,7 +12,9 @@
             <nav>
                 <ul>
                     <li *ngFor="let p of pages">
-                        <a href="#" [routerLink]="'/' + p.path">{{p.link}}</a>
+                        <div class="links-main">
+                            <a href="#" [routerLink]="'/' + p.path">{{p.link}}</a>
+                        </div>
                     </li>
                 </ul>
             </nav>
