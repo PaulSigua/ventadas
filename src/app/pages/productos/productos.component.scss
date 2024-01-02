@@ -37,6 +37,13 @@
                 color: #ffffff;
                 cursor: pointer;
                 font-size: 20px;
+                border-radius: 5px;
+                padding: 5px;
+
+                &:hover{
+                    background-color: #fff;
+                    color: #5e89ff;
+                }
             }
 
             input {
@@ -44,14 +51,21 @@
                 border-top-left-radius: 10px;
                 border-end-start-radius: 10px;
                 border: 1px solid #bfbfbf;
+
+                &:focus{
+                    border: 1px solid rgb(177, 177, 177);
+                    outline: none;
+                }
             }
 
             .buscador {
+                border-radius: 0px;
                 border-bottom-right-radius: 10px;
                 border-top-right-radius: 10px;
                 background-color: #ffffff;
                 color: #000000;
                 margin-left: 0px;
+                padding: 1px;
             }
         }
     }
@@ -73,7 +87,7 @@
         padding-right: 5px;
         position: relative;
         overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0);
+        border: 1px solid rgb(229, 229, 229);
         border-radius: 10px;
         transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 
@@ -118,7 +132,7 @@
             margin: 5px;
             width: 200px;
             color: #fff;
-            border: 2px solid rgb(255, 255, 255);
+            border: 2px solid rgb(233, 233, 233);
             cursor: pointer;
 
             &:hover {
