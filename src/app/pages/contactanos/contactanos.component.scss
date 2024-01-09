@@ -13,7 +13,7 @@
         h2 {
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            background-color: #5e89ff;
+            background-color: #000000;
             color: #fff;
         }
 
@@ -30,7 +30,7 @@
                 transition: border-color 0.3s ease-in-out;
 
                 &:focus {
-                    border-color: #5e89ff;
+                    border-color: #000000;
                     outline: none;
                 }
             }
@@ -49,13 +49,13 @@
                 border: 1px solid rgb(155, 155, 155);
 
                 &:focus {
-                    border-color: #5e89ff;
+                    border-color: #1e1f22;
                     outline: none;
                 }
             }
 
             button {
-                background-color: #5581fb;
+                background-color: #000000;
                 padding: 5px;
                 border-radius: 10px;
                 margin: 5px;
@@ -65,9 +65,9 @@
                 cursor: pointer;
 
                 &:hover {
-                    border: 2px solid #5581fb;
+                    border: 2px solid #000000;
                     background-color: #fff;
-                    color: #5581fb;
+                    color: #000000;
                 }
             }
         }

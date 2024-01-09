@@ -7,9 +7,16 @@ import { Component } from '@angular/core';
 })
 export class CuentaComponent {
 
+  mostrarFormularioEstatico: boolean = true;
+  mostrarFormulario: boolean = false;
   constructor(){
     window.scrollTo({
       top: 0
     })
+  }
+
+  login(){
+    this.mostrarFormularioEstatico = false;
+    this.mostrarFormulario = true;
   }
 }

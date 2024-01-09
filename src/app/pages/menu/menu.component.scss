@@ -1,17 +1,15 @@
 .container{
-    margin: 0;
     position: relative;
     width: auto;
-    height: 70px;
+    height: 53px;
 }
 
 .container-nav {
     display: flex;
     align-items: center;
-    padding: 10px;
     background-color: rgb(230, 230, 230);
     color: white;
-    height: 53px;
+    height: auto;
     justify-content: space-around;
     z-index: 10;
     border: none;
@@ -19,8 +17,8 @@
 
 .fixed-header {
     position: fixed;
-    padding: 0;
     margin: 0;
+    padding: 0;
     width: 100%;
     border: none;
 }
@@ -65,13 +63,13 @@
     border-top: none;
     border-left: 0px;
     border-right: 0px;
-    border: 2px solid rgb(230, 230, 230);
+    border: 3px solid rgb(230, 230, 230);
     border-top: none;
     border-left: none;
     border-right: none;
 
     &:hover {
-        border: 2px solid rgb(0, 0, 0);
+        border: 3px solid rgb(0, 0, 0);
         border-top: none;
         border-left: none;
         border-right: none;

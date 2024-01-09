@@ -22,7 +22,7 @@ import { FooterComponent } from './pages/footer/footer.component';
     ContactanosComponent,
     CarritoComponent,
     CuentaComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
