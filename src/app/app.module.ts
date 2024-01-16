@@ -11,6 +11,9 @@ import { ContactanosComponent } from './pages/contactanos/contactanos.component'
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { CuentaComponent } from './pages/cuenta/cuenta.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ClientesComponent } from './pages/clientes/clientes.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,13 @@ import { FooterComponent } from './pages/footer/footer.component';
     CarritoComponent,
     CuentaComponent,
     FooterComponent,
+    ClientesComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule //Para la conexion con Eclipse primero importamos esto
   ],
   providers: [],
   bootstrap: [AppComponent]
