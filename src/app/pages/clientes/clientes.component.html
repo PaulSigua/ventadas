@@ -4,26 +4,26 @@
 
     <div class="contenedor-form">
         <form action="">
-            <table>
                 <tr>
                     <td>Codigo</td>
                     <td><input type="number" name="txtCodigo" [(ngModel)]="client.codigo"></td>
                 </tr>
                 <tr>
                     <td>DNI</td>
-                    <td><input type="number" name="txtCodigo" [(ngModel)]="client.dni"></td>
+                    <td><input type="text" name="txtDNI" [(ngModel)]="client.dni"></td>
                 </tr>
                 <tr>
                     <td>Nombre</td>
-                    <td><input type="number" name="txtCodigo" [(ngModel)]="client.nombre"></td>
+                    <td><input type="text" name="txtNombre" [(ngModel)]="client.nombre"></td>
                 </tr>
                 <tr>
                     <td>Direccion</td>
-                    <td><input type="number" name="txtCodigo" [(ngModel)]="client.direccion"></td>
+                    <td><input type="text" name="txtDireccion" [(ngModel)]="client.direccion"></td>
                 </tr>
-            </table>
 
-            <button (click)="guardar()">Guardar</button>
+            <button (click)="guardar()" *ngIf="mostrarBotonGuardar">Guardar</button>
+            <button (click)="cancelar()" *ngIf="mostrarBotonCancelar">Cancelar</button>
+            <button (click)="actualizar()" *ngIf="mostrarBotonActualizar">Actualizar</button>
         </form>
     </div>
 
@@ -34,6 +34,7 @@
                 <th>DNI</th>
                 <th>Nombre</th>
                 <th>Direccion</th>
+                <th></th>
             </tr>
 
             <tr *ngFor="let cli of clientes | async">
@@ -41,6 +42,10 @@
                 <td>{{cli.dni}}</td>
                 <td>{{cli.nombre}}</td>
                 <td>{{cli.direccion}}</td>
+                <td><button class="btn-eliminar" (click)="eliminar(cli.codigo)">Eliminar</button>
+                    <button class="btn-editar" (click)="editar(cli)">Editar</button>
+                </td>
+                
             </tr>
         </table>
     </div>
