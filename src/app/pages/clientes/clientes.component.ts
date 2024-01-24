@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { Cliente } from 'src/app/domain/cliente';
+import { Cliente, Detalle, Factura } from 'src/app/domain/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
@@ -10,8 +10,13 @@ import { ClienteService } from 'src/app/services/cliente.service';
 })
 export class ClientesComponent implements OnInit {
   clientes: any;
+  facturas: any;
+  detalles: Detalle[] = [];
 
-  client: Cliente = new Cliente();
+  cli: Cliente = new Cliente();
+  fac: Factura = new Factura();
+  det: Detalle = new Detalle();
+
   mostrarBotonGuardar: boolean = true;
   mostrarBotonActualizar: boolean = false;
   mostrarBotonCancelar: boolean = false;
@@ -21,27 +26,29 @@ export class ClientesComponent implements OnInit {
     window.scrollTo({
       top: 0
     })
+
   }
 
   ngOnInit(): void {
     this.clientes = this.clienteService.getClientes();
+    this.facturas = this.clienteService.getFacturas();
   }
 
   cancelar() {
     this.mostrarBotonGuardar = true;
     this.mostrarBotonCancelar = false;
     this.mostrarBotonActualizar = false;
-    this.client = {};
+    this.cli = {};
   }
 
   guardar() {
-    if (this.client.codigo == null || this.client.dni == null || this.client.nombre == null || this.client.direccion == null) {
+    if (this.cli.codigo == null || this.cli.dni == null || this.cli.nombre == null || this.cli.direccion == null) {
       alert("Debe llenar todos los parametros")
     } else {
-      this.clienteService.saveCliente(this.client).subscribe(data => {
+      this.clienteService.saveCliente(this.cli).subscribe(data => {
         console.log(data);
         if (data.codigo == 1) {
-          this.client = new Cliente();
+          this.cli = new Cliente();
           this.ngOnInit();
         } else {
           alert("Error al insertar" + data.message)
@@ -51,10 +58,10 @@ export class ClientesComponent implements OnInit {
   }
 
   actualizar() {
-    this.clienteService.updateCliente(this.client).subscribe(data => {
+    this.clienteService.updateCliente(this.cli).subscribe(data => {
       console.log(data);
     });
-    this.client = {};
+    this.cli = {};
     this.ngOnInit();
     this.mostrarBotonCancelar = false;
     this.mostrarBotonActualizar = false;
@@ -62,7 +69,7 @@ export class ClientesComponent implements OnInit {
   }
 
   editar(cliente: Cliente) {
-    this.client = { ...cliente };
+    this.cli = { ...cliente };
     this.mostrarBotonGuardar = false;
     this.mostrarBotonCancelar = true;
     this.mostrarBotonActualizar = true;
@@ -76,4 +83,53 @@ export class ClientesComponent implements OnInit {
     this.ngOnInit();
   }
 
+  guardarFactura() {
+    if (!this.fac.detalles) {
+      this.fac.detalles = [];
+    }
+    this.fac.detalles = this.detalles;
+    console.log(this.fac);
+    this.clienteService.saveFactura(this.fac).subscribe(data => {
+      console.log(data);
+      if (data.codigo == 1) {
+        this.fac = new Factura();
+        console.log(this.fac);
+        this.detalles = [];
+        
+        this.ngOnInit();
+      } else {
+        alert("Error al insertar" + data.message)
+      }
+    });
+  }
+
+  guardarDet() {
+    console.log(this.det);
+    const detalle = this.det;
+    if (this.det) {
+      this.detalles.push(detalle);
+      console.log(this.detalles);
+      this.det = new Detalle();
+    }
+  }
+
+  /*guardarDetalle() {
+    if (this.det.nombre == null || this.det.cantidad == null || this.det.precio == null) {
+      alert("Debe llenar todos los campos");
+    } else {
+      this.clienteService.saveDetalle(this.det).subscribe(data => {
+        console.log(data);
+        if (data.codigo == 1) {
+          this.det = new Detalle();
+          this.ngOnInit();
+        } else {
+          alert("Error al insertar" + data.message)
+        }
+      });
+    }
+  }*/
+
+  calcularTotal(cantidad: number, precio: number) {
+    const total = cantidad * precio;
+  }
 }

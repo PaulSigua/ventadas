@@ -5,6 +5,34 @@
     align-items: center;
 }
 
+.contenedor-form-client{
+    margin: 30px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-form-factura{
+    margin: 30px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-form-detalle{
+    margin: 30px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-tabla{
+    margin: 30px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -24,6 +52,11 @@ th {
 
 tr:hover {
     background-color: #f5f5f5;
+}
+
+select{
+    margin: 20px;
+    margin-left: 15px;
 }
 
 button {
@@ -87,4 +120,28 @@ button {
         color: #008df9;
         border: 2px solid #008df9;  
     }
+}
+
+.contenedor-clientes{
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.contenedor-detalles{
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+.contenedor-facturas{
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    margin: 20px;
 }
