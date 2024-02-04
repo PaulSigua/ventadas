@@ -11,12 +11,12 @@
     align-items: center;
     text-align: center;
 
-    h2{
+    h2 {
         padding-top: 80px;
     }
-    
+
     p {
-        
+
         width: 100%;
         height: 100%;
     }
@@ -30,13 +30,13 @@
         margin-left: 10px;
         border: 3px solid rgba(63, 63, 63, 0);
 
-        &:hover{
+        &:hover {
             border: 3px solid rgb(255, 255, 255);
             background-color: rgb(255, 255, 255);
         }
     }
 
-    i{
+    i {
         font-size: 20px;
         padding-left: 10px;
 
@@ -172,11 +172,11 @@
     width: auto;
     justify-content: center;
     align-items: center;
-    background-color:  #000000;
+    background-color: #000000;
     padding-left: 20px;
     padding-right: 10px;
 
-    h1{
+    h1 {
         color: #ffffff;
     }
 
@@ -197,6 +197,30 @@
             &:hover {
                 border: 1px solid #b4b4b4;
                 scale: 1.02;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .contenedor-categorias {
+        display: grid;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+
+        h1{
+            font-size: 18px;
+        }
+
+        .categoria {
+            flex-direction: column;
+            width: 300px;
+            height: 100px;
+
+            button {
+                width: 300px;
+                height: 100px;
             }
         }
     }

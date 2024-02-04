@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div class="contenedor-main">
-    <header [ngClass]="{'fixed-header': isScrolled}">
+    <header [ngClass]="{'fixed-header': isScrolled}" class="header-main">
         <div class="categorias">
             <div class="btns">
                 <button (click)="mostrarCategoria('todos')">Mostrar todo</button>
@@ -9,6 +9,29 @@
                 <button (click)="mostrarCategoria('hogar')">Hogar</button>
                 <button (click)="mostrarCategoria('gaming')">Gaming</button>
                 <button (click)="mostrarCategoria('electr')">Electrodomésticos</button>
+
+                <div class="buscar-contenedor">
+                    <i class="fa fa-search">
+                        <input type="text"><button class="buscador">Buscar</button>
+                    </i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <header [ngClass]="{'fixed-header': isScrolled}" class="header-sec">
+        <div class="categorias">
+            <div class="btns">
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="mostrarCategoria('todos')">Mostrar todo</button>
+                    <button mat-menu-item (click)="mostrarCategoria('ropa')">Ropa</button>
+                    <button mat-menu-item (click)="mostrarCategoria('tecno')">Tecnología</button>
+                    <button mat-menu-item (click)="mostrarCategoria('hogar')">Hogar</button>
+                    <button mat-menu-item (click)="mostrarCategoria('gaming')">Gaming</button>
+                    <button mat-menu-item (click)="mostrarCategoria('electr')">Electrodomésticos</button>
+                </mat-menu>
+
+                <button mat-button [matMenuTriggerFor]="menu">Categorías</button>
 
                 <div class="buscar-contenedor">
                     <i class="fa fa-search">

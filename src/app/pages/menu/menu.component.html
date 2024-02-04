@@ -3,12 +3,38 @@
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 
 <div class="container">
+
     <header class="container-nav" [ngClass]="{'fixed-header': isScrolled}">
+
+        <div *ngIf="showSidenav" class="contenedor-sidenav-main">
+            <mat-sidenav-container class="contenedor-sidenav">
+                <mat-sidenav #sidenav class="sidenav">
+                    <!-- Contenido del SideNav -->
+                    <h2>Ventadas</h2>
+                    <a mat-list-item routerLink="/pages/inicio">Inicio</a>
+                    <a mat-list-item routerLink="/pages/productos">Productos</a>
+                    <a mat-list-item routerLink="/pages/nosotros">Nosotros</a>
+                    <a mat-list-item routerLink="/pages/contactanos">Contactanos</a>
+                    <a mat-list-item routerLink="/pages/login">Resgistrarse</a>
+                    <!-- Puedes agregar más enlaces según tus necesidades -->
+                </mat-sidenav>
+
+                <mat-sidenav-content>
+                    <!-- Contenido principal de la aplicación -->
+                    <button mat-icon-button (click)="sidenav.toggle()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+
+                    <router-outlet></router-outlet>
+                </mat-sidenav-content>
+            </mat-sidenav-container>
+        </div>
+
         <div class="logo">
             <a href="#" [routerLink]="'/pages/inicio'"><b>V</b>entadas</a>
         </div>
 
-        <div class="nav-main">
+        <div class="nav-main" *ngIf="paginas">
             <nav>
                 <ul>
                     <li *ngFor="let p of pages">

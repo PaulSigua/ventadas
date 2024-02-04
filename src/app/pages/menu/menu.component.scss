@@ -1,4 +1,4 @@
-.container{
+.container {
     position: relative;
     width: auto;
     height: 53px;
@@ -149,4 +149,112 @@
             }
         }
     }
+}
+
+.container-nav {
+    mat-sidenav-container mat-sidenav {
+        position: fixed;
+        margin: 0px;
+        padding: 0px;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #fff;
+    }
+}
+
+@media (max-width: 800px) {
+    .container-nav {
+        display: flex;
+        align-items: center;
+        background-color: rgb(230, 230, 230);
+        color: white;
+        height: 55px;
+        justify-content: space-around;
+        z-index: 10;
+        border: none;
+    }
+
+    .fixed-header {
+        position: fixed;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        border: none;
+    }
+
+    .nav-main {
+        display: none; // Ocultar el div cuando el ancho de la pantalla sea de 500px o menos
+    }
+}
+
+
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Contenedor principal del sidenav */
+.contenedor-sidenav-main {
+    /* Ocupar toda la altura de la ventana */
+}
+
+/* Contenedor del sidenav y su contenido */
+.contenedor-sidenav {
+    /* Ancho del sidenav */
+    background-color: rgb(230, 230, 230);
+}
+
+/* Estilo del sidenav */
+.sidenav {
+    background-color: #000000;
+    /* Color de fondo del sidenav */
+    color: #000000;
+    /* Color del texto en el sidenav */
+}
+
+.sidenav {
+    h2 {
+        padding: 20px;
+        padding-block-end: 15px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000000;
+        font-size: 18px;
+        padding: 16px;
+        display: block;
+    }
+}
+
+.sidenav a:hover {
+    background-color: #d1d1d1;
+    /* Color de fondo al pasar el ratón sobre un enlace */
+}
+
+/* Contenido principal */
+mat-sidenav-content {
+    padding: 0px;
+}
+
+/* Botón para abrir/cerrar el sidenav */
+button.mat-icon-button {
+    color: #ffffff;
+}
+
+/* Icono del botón */
+mat-icon {
+    font-size: 24px;
+}
+
+/* Estilos para el enrutador outlet (contenido principal) */
+router-outlet {
+    margin-top: 16px;
+}
+
+/* Estilo para el enlace activo en el sidenav */
+.sidenav a.router-link-active {
+    background-color: #546e7a;
 }

@@ -1,4 +1,6 @@
 footer {
+    margin: 0;
+    padding: 0;
     .contactanos {
         display: flex;
         justify-content: center;
@@ -12,6 +14,7 @@ footer {
         margin-top: 20px;
 
         .num-telefonos {
+            display: grid;
             margin: 40px;
 
             .nosotros {
@@ -24,6 +27,7 @@ footer {
         .redes-sociales {
             display: grid;
             margin: 40px;
+            text-align: center;
 
             h3 {
                 text-align: center;
@@ -31,9 +35,9 @@ footer {
 
             .redes {
                 display: flex;
-                justify-content: left;
-                text-align: left;
-                align-items: left;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
 
                 button {
                     margin: 5px;
@@ -64,6 +68,8 @@ footer {
             display: grid;
             margin: 40px;
             text-align: center;
+            justify-content: center;
+            align-items: center;
 
             button {
                 background-color: #000000;
@@ -84,7 +90,10 @@ footer {
         }
 
         .compra {
-            width: 250px;
+            margin: 40px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
     }
 }
@@ -105,4 +114,18 @@ footer {
 
 .icon {
     margin: 5px;
+}
+
+@media (max-width: 1000px) {
+    footer{
+        .contactanos{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-auto-rows: auto;
+            gap: 20px 20px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+    }
 }
