@@ -69,7 +69,7 @@
                 </tr>
 
                 <div class="total">
-                                        
+                    
                 </div>
 
                 <tr>
@@ -137,17 +137,19 @@
                         <th>Detalle</th>
                     </tr>
 
-                    <tr *ngFor="let fac of facturas | async">
-                        <td>{{fac.codigo}}</td>
-                        <td>{{fac.numero}}</td>
-                        <td>{{fac.cliente.nombre}}</td>
-                        <td>{{fac.total}}</td>
-                        <td>{{fac.fechaEmision}}</td>
+                    <tr *ngFor="let fact of facturas | async">
+                        <td>{{fact.codigo}}</td>
+                        <td>{{fact.numero}}</td>
+                        <td>{{fact.cliente.nombre}}</td>
+                        <td>${{calcularTotal(fact)}}</td>
+                        <td>{{fact.fechaEmision}}</td>
                         <td>
-                            <ul>
-                                <li *ngFor="let det of fac.detalles">
+                            <ul *ngFor="let det of fact.detalles">
+                                <li >
                                     {{det.nombre}}
                                 </li>
+                                Precio: ${{det.precio}}
+                                Cantidad: {{det.cantidad}}
                             </ul>
                         </td>
                     </tr>
@@ -156,4 +158,5 @@
 
         </div>
     </div>
-    <app-footer></app-footer>
+</div>
+<app-footer></app-footer>

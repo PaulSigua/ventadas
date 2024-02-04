@@ -17,12 +17,6 @@ export class ClienteService {
     console.log(url);
     return this.http.get<any>(url);
   }
-
-  getDetalles(){
-    let url = environment.WA_PATH + '/detalles/list';
-    console.log(url);
-    return this.http.get<any>(url);
-  }
   
   getFacturas(){
     let url = environment.WA_PATH + '/facturas/list';
@@ -33,11 +27,6 @@ export class ClienteService {
   saveCliente(cliente: Cliente){
     let url = environment.WA_PATH + '/clientes';
     return this.http.post<any>(url, cliente);
-  }
-
-  saveDetalle(detalle: Detalle){
-    let url = environment.WA_PATH + '/detalles';
-    return this.http.post<any>(url, detalle);
   }
 
   saveFactura(factura: Factura){

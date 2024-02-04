@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
 import { Cliente, Detalle, Factura } from 'src/app/domain/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
 
@@ -21,8 +20,7 @@ export class ClientesComponent implements OnInit {
   mostrarBotonActualizar: boolean = false;
   mostrarBotonCancelar: boolean = false;
 
-  constructor(private clienteService: ClienteService,
-    private router: Router) {
+  constructor(private clienteService: ClienteService) {
     window.scrollTo({
       top: 0
     })
@@ -84,6 +82,7 @@ export class ClientesComponent implements OnInit {
   }
 
   guardarFactura() {
+
     if (!this.fac.detalles) {
       this.fac.detalles = [];
     }
@@ -95,7 +94,7 @@ export class ClientesComponent implements OnInit {
         this.fac = new Factura();
         console.log(this.fac);
         this.detalles = [];
-        
+
         this.ngOnInit();
       } else {
         alert("Error al insertar" + data.message)
@@ -129,7 +128,18 @@ export class ClientesComponent implements OnInit {
     }
   }*/
 
-  calcularTotal(cantidad: number, precio: number) {
-    const total = cantidad * precio;
+  calcularTotal(factura: Factura): number {
+    if (factura.detalles) {
+      return factura.detalles.reduce((total, detalle) => {
+        const cantidad = detalle.cantidad ?? 0;
+        const precio = detalle.precio ?? 0;
+        const resultado = cantidad * precio;
+        const v = parseFloat(resultado.toFixed(4));
+        return total + v;
+      }, 0);
+    } else {
+      return 0;
+    }
   }
 }
+
