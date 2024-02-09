@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environments';
-import { Cliente, Detalle, Factura } from '../domain/cliente';
+import { Cliente, Detalle, Factura, MensajeUsuario } from '../domain/cliente';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -43,6 +43,11 @@ export class ClienteService {
     let url = environment.WA_PATH + '/clientes?id=' + cliente;
     console.log(url);
     return this.http.delete<any>(url);
+  }
+
+  saveMensajeUsuario(mensaje: MensajeUsuario){
+    let url = environment.WA_PATH + '/mensaje';
+    return this.http.post<any>(url, mensaje);
   }
 
 }

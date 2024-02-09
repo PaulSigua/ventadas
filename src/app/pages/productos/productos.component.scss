@@ -87,18 +87,18 @@
 
 .contenedor-main .fixed-header {
     position: fixed;
-    z-index: 10;
-    padding: 0;
-    margin: 0;
+    z-index: 1;
     width: 100%;
     border: none;
 }
 
 .texto{
-    display: flex;
-    padding: 40px;
+    display: grid;
+    padding: 80px;
     justify-content: center;
-    padding-block-end: 0px;
+    background-color: #e1f6fd;
+    border-radius: 5px;
+    padding-block-end: 15px;
 }
 
 .contenedor-productos {
@@ -185,14 +185,30 @@
     }
 }
 
-@media (min-width: 941px) {
+.header-sec{
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: none;
+}
+
+@media (min-width: 1221px) {
     .header-sec{
         display: none;
     }
 }
 
-@media (max-width: 940px) {
+@media (max-width: 1220px) {
     .header-main{
         display: none;
+    }
+}
+
+@media (max-width: 940px){
+    .texto {
+        padding-top: 60px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

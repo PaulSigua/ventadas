@@ -40,7 +40,7 @@ export class ClientesComponent implements OnInit {
   }
 
   guardar() {
-    if (this.cli.codigo == null || this.cli.dni == null || this.cli.nombre == null || this.cli.direccion == null) {
+    if (this.cli.dni == null || this.cli.nombre == null || this.cli.direccion == null) {
       alert("Debe llenar todos los parametros")
     } else {
       this.clienteService.saveCliente(this.cli).subscribe(data => {

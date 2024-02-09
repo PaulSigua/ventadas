@@ -9,6 +9,7 @@
                 <button (click)="mostrarCategoria('hogar')">Hogar</button>
                 <button (click)="mostrarCategoria('gaming')">Gaming</button>
                 <button (click)="mostrarCategoria('electr')">Electrodomésticos</button>
+                <button (click)="mostrarCategoria('construc')">Construcción</button>
 
                 <div class="buscar-contenedor">
                     <i class="fa fa-search">
@@ -29,6 +30,7 @@
                     <button mat-menu-item (click)="mostrarCategoria('hogar')">Hogar</button>
                     <button mat-menu-item (click)="mostrarCategoria('gaming')">Gaming</button>
                     <button mat-menu-item (click)="mostrarCategoria('electr')">Electrodomésticos</button>
+                    <button mat-menu-item (click)="mostrarCategoria('construc')">Construcción</button>
                 </mat-menu>
 
                 <button mat-button [matMenuTriggerFor]="menu">Categorías</button>
@@ -43,15 +45,31 @@
     </header>
 
     <div class="texto">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ipsa, architecto porro, minima facere blanditiis
-        illo distinctio corporis culpa consequuntur nam tenetur laudantium sunt, repellat quos temporibus! Ratione, ad
-        explicabo!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi vitae assumenda blanditiis recusandae doloremque
-        distinctio eius. Eveniet quia maiores iure, nesciunt sed accusamus esse nihil consectetur nostrum? Aliquam,
-        necessitatibus facilis?
+        <H2>¡El producto que necesitas está aquí!</H2>
+        <p>
+            Ofrecemos productos de toda necesidad para todos los gustos y colores. <br>
+            Las categorías te ayudaran a encontrar lo que estás buscando de una manera más rápida 
+            y sencilla sin que tengas que perder tú valioso tiempo.
+        </p>
     </div>
 
-    <div *ngIf="categoriaSeleccionada === 'todos' || categoriaSeleccionada === 'ropa'" class="contenedor-productos">
+    <div class="contenedor-productos">
+        <ul>
+            <div class="contenedor-listas">
+                <li class="productos" *ngFor="let pro of productos | async">
+                    <img src="{{pro.imagen}}" alt="">
+                    <div class="producto-text">
+                        <p>{{pro.descripcion}}</p>
+                        <h2>{{pro.nombre}}</h2>
+                        <h3>${{pro.precio}}</h3>
+                    </div>
+                    <button>Agregar al carrito</button>
+                </li>
+            </div>
+        </ul>
+    </div>
+
+    <!--div *ngIf="categoriaSeleccionada === 'todos' || categoriaSeleccionada === 'ropa'" class="contenedor-productos">
         <ul>
             <div class="contenedor-listas">
                 <li class="productos">
@@ -126,7 +144,7 @@
                 </li>
             </div>
         </ul>
-    </div>
+    </!--div>
 
     <div *ngIf="categoriaSeleccionada === 'todos' || categoriaSeleccionada === 'tecno'" class="contenedor-productos">
         <ul>
@@ -429,7 +447,7 @@
         </ul>
     </div>
 
-    <div *ngIf="categoriaSeleccionada === 'todos' || categoriaSeleccionada === 'electr'" class="contenedor-productos">
+    <div-- *ngIf="categoriaSeleccionada === 'todos' || categoriaSeleccionada === 'electr'" class="contenedor-productos">
         <ul>
             <div class="contenedor-listas">
                 <li class="productos">
@@ -550,6 +568,6 @@
                 </li>
             </div>
         </ul>
-    </div>
+    </div-->
     <app-footer></app-footer>
 </div>

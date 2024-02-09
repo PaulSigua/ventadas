@@ -5,6 +5,7 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
+        text-align: center;
         padding: 20px;
         color: #fff;
         background-color: rgb(0, 0, 0);
@@ -94,6 +95,7 @@ footer {
             justify-content: center;
             align-items: center;
             text-align: center;
+            width: 350px;
         }
     }
 }
@@ -126,6 +128,23 @@ footer {
             text-align: center;
             justify-content: center;
             align-items: center;
+
+            .num-telefonos{
+                margin: 10px;
+            }
+
+            .redes-sociales{
+                margin: 10px;
+            }
+
+            .logo{
+                margin: 10px;
+            }
+
+            .compra{
+                margin: auto;
+                width: 250px;
+            }
         }
     }
 }

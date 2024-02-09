@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
 
@@ -9,18 +9,22 @@ import { Router } from '@angular/router';
 })
 export class InicioComponent {
 
-  constructor(private router: Router){
+  @ViewChild('productContainer')
+  productContainer!: ElementRef;
+
+  constructor(private router: Router,
+    private renderer: Renderer2) {
     window.scrollTo({
       top: 0
     })
   }
 
-  irAproductos(){
+  irAproductos() {
     this.router.navigate([('pages/productos')]);
   }
 
-  saveProduct(description: HTMLTextAreaElement, name: HTMLInputElement, price: HTMLInputElement, urlImage: HTMLInputElement){
-    if(!name.value || !description.value || !price.value){
+  saveProduct(description: HTMLTextAreaElement, name: HTMLInputElement, price: HTMLInputElement, urlImage: HTMLInputElement) {
+    if (!name.value || !description.value || !price.value) {
       alert('Llene todos los campos');
       return false;
     } else {
@@ -36,5 +40,16 @@ export class InicioComponent {
     }
   }
 
-  
+  scroll(direction: number): void {
+    const container = this.productContainer.nativeElement;
+    const containerWidth = container.offsetWidth;
+    const scrollStep = containerWidth / 2; // Ajusta este valor según prefieras
+
+    // Anima el desplazamiento
+    container.scroll({
+      left: container.scrollLeft + direction * scrollStep,
+      behavior: 'smooth'
+    });
+  }
 }
+

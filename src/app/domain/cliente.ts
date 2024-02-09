@@ -19,3 +19,22 @@ export class Factura {
     fechaEmision?: string;
     detalles?: Detalle [];
 }
+
+export class Categoria {
+    codigo?: string;
+    nombre?: string;
+}
+
+export class Producto {
+    codigo?: number;
+    nombre?: string;
+    precio?: number;
+    categoria?: Categoria;
+    imagen?: string;
+}
+
+export class MensajeUsuario {
+    nombre?: string;
+    correo?: string;
+    mensaje?: string;
+}

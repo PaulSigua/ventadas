@@ -7,7 +7,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent{
+export class MenuComponent implements OnInit {
 
   pages = [
     { link: 'Inicio', path: 'pages/inicio' },
@@ -34,6 +34,10 @@ export class MenuComponent{
     });
   }
 
+  ngOnInit(): void {
+    //this.showSidenav = false;
+  }
+
   irAlCarrito() {
     this.router.navigate([('pages/carrito')]);
   }
@@ -49,11 +53,15 @@ export class MenuComponent{
   }
 
   mostrarSideNav() {
-    this.showSidenav = window.innerWidth <= 1000;
+    //this.showSidenav = window.innerWidth <= 1000;
   }
 
-  mostrarPaginas(){
+  mostrarPaginas() {
     this.paginas = window.innerHeight <= 500;
-    this.paginas= false;
+    this.paginas = false;
+  }
+
+  cerrarSidenav() {
+    this.showSidenav = false;
   }
 }

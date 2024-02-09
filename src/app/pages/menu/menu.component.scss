@@ -80,6 +80,7 @@
 
 .iconos {
     display: flex;
+    margin: 0px;
 
     .carrito {
         margin-right: 10px;
@@ -151,6 +152,27 @@
     }
 }
 
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        margin-right: 20px;
+        background-color: #fff;
+        color: #787878;
+        border: 0px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    h2 {
+        margin: 0;
+        text-align: center;
+        flex: auto;
+    }
+}
+
 .container-nav {
     mat-sidenav-container mat-sidenav {
         position: fixed;
@@ -177,41 +199,37 @@
 
     .fixed-header {
         position: fixed;
-        margin: 0;
-        padding: 0;
         width: 100%;
         border: none;
     }
 
     .nav-main {
-        display: none; // Ocultar el div cuando el ancho de la pantalla sea de 500px o menos
+        display: none;
+    }
+
+    .iconos .cuenta-personal {
+        margin: 0px;
+        margin-left: 5px;
+        padding: 0px;
     }
 }
 
-
-/* Estilos generales */
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-/* Contenedor principal del sidenav */
 .contenedor-sidenav-main {
-    /* Ocupar toda la altura de la ventana */
+    background-color: #E6E6E6;
 }
 
-/* Contenedor del sidenav y su contenido */
+
 .contenedor-sidenav {
-    /* Ancho del sidenav */
-    background-color: rgb(230, 230, 230);
+    background-color: #E6E6E6;
 }
 
 /* Estilo del sidenav */
 .sidenav {
+    justify-content: center;
+    text-align: center;
     background-color: #000000;
-    /* Color de fondo del sidenav */
     color: #000000;
-    /* Color del texto en el sidenav */
+    width: 100%;
 }
 
 .sidenav {
@@ -230,31 +248,69 @@ body {
 }
 
 .sidenav a:hover {
-    background-color: #d1d1d1;
-    /* Color de fondo al pasar el ratón sobre un enlace */
+    background-color: #E6E6E6;
 }
 
 /* Contenido principal */
 mat-sidenav-content {
     padding: 0px;
+    overflow-y: hidden;
 }
 
-/* Botón para abrir/cerrar el sidenav */
 button.mat-icon-button {
-    color: #ffffff;
+    color: #E6E6E6;
 }
 
 /* Icono del botón */
 mat-icon {
-    font-size: 24px;
+    font-size: 25px;
+
 }
 
-/* Estilos para el enrutador outlet (contenido principal) */
 router-outlet {
     margin-top: 16px;
 }
 
-/* Estilo para el enlace activo en el sidenav */
 .sidenav a.router-link-active {
-    background-color: #546e7a;
+    background-color: #E6E6E6;
+}
+
+.redes-sociales {
+    display: grid;
+    margin: 40px;
+    text-align: center;
+
+    h3 {
+        text-align: center;
+    }
+
+    .redes {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+
+        button {
+            margin: 5px;
+            border: 1px solid #fff;
+            background-color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            color: #282828;
+
+            &:hover {
+                border: 1px solid rgb(255, 255, 255);
+                background-color: rgb(255, 255, 255);
+                color: #000;
+            }
+
+        }
+
+    }
 }

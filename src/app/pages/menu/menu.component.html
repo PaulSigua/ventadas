@@ -10,12 +10,40 @@
             <mat-sidenav-container class="contenedor-sidenav">
                 <mat-sidenav #sidenav class="sidenav">
                     <!-- Contenido del SideNav -->
-                    <h2>Ventadas</h2>
+                    <div class="encabezado">
+                        <h2>Ventadas</h2>
+                        <button (click)="cerrarSidenav()">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+
                     <a mat-list-item routerLink="/pages/inicio">Inicio</a>
                     <a mat-list-item routerLink="/pages/productos">Productos</a>
                     <a mat-list-item routerLink="/pages/nosotros">Nosotros</a>
                     <a mat-list-item routerLink="/pages/contactanos">Contactanos</a>
+                    <a mat-list-item routerLink="/pages/carrito">Carrito</a>
                     <a mat-list-item routerLink="/pages/login">Resgistrarse</a>
+
+                    <div class="redes-sociales">
+                        <div class="redes">
+                            <button onclick="window.open('https://www.facebook.com/', '_blank');"
+                                class="social-btn-facebook">
+                                <i class="icon fab fa-facebook"></i>
+                            </button>
+
+                            <!-- Botón de Instagram -->
+                            <button onclick="window.open('https://www.instagram.com/', '_blank');"
+                                class="social-btn-instagram">
+                                <i class="icon fab fa-instagram"></i>
+                            </button>
+
+                            <!-- Botón de Twitter -->
+                            <button onclick="window.open('https://twitter.com/', '_blank');" class="social-btn-twitter">
+                                <i class="icon fab fa-twitter"></i>
+                            </button>
+                        </div>
+                    </div>
+
                     <!-- Puedes agregar más enlaces según tus necesidades -->
                 </mat-sidenav>
 
