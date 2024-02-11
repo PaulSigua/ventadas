@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
+import { ValidarDatosPersonalesComponent } from './pages/validar-datos-personales/validar-datos-personales.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MatInputModule } from '@angular/material/input';
     CuentaComponent,
     FooterComponent,
     ClientesComponent,
+    ValidarDatosPersonalesComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,7 @@ import { MatInputModule } from '@angular/material/input';
     BrowserAnimationsModule,
     AppRoutingModule //Para la conexion con Eclipse primero importamos esto
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     provideAnimationsAsync()
   ],

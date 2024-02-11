@@ -13,7 +13,7 @@
 
                 <div class="buscar-contenedor">
                     <i class="fa fa-search">
-                        <input type="text"><button class="buscador">Buscar</button>
+                        <input type="text" #nombre><button class="buscador" (click)="buscar(nombre)">Buscar</button>
                     </i>
                 </div>
             </div>
@@ -37,7 +37,7 @@
 
                 <div class="buscar-contenedor">
                     <i class="fa fa-search">
-                        <input type="text"><button class="buscador">Buscar</button>
+                        <input type="text" #nombree><button class="buscador" (click)="buscar(nombree)">Buscar</button>
                     </i>
                 </div>
             </div>
@@ -48,526 +48,56 @@
         <H2>¡El producto que necesitas está aquí!</H2>
         <p>
             Ofrecemos productos de toda necesidad para todos los gustos y colores. <br>
-            Las categorías te ayudaran a encontrar lo que estás buscando de una manera más rápida 
+            Las categorías te ayudaran a encontrar lo que estás buscando de una manera más rápida
             y sencilla sin que tengas que perder tú valioso tiempo.
         </p>
     </div>
 
     <div class="contenedor-productos">
         <ul>
-            <div class="contenedor-listas">
-                <li class="productos" *ngFor="let pro of productos | async">
-                    <img src="{{pro.imagen}}" alt="">
-                    <div class="producto-text">
-                        <p>{{pro.descripcion}}</p>
-                        <h2>{{pro.nombre}}</h2>
-                        <h3>${{pro.precio}}</h3>
+            <div class="contenedor-busqueda">
+                <div class="condicion-result" *ngIf="mostrarResultados">
+                    <div class="name-result">
+                        <h2>Resultados de la busqueda</h2>
                     </div>
-                    <button>Agregar al carrito</button>
-                </li>
+                    <div class="contenedor-listas">
+                        <li class="productos" *ngFor="let pro of productosBusqueda">
+                            <div class="contenedor-img">
+                                <img src="{{pro.imagen}}" alt="">
+                            </div>
+                            <div class="contenedor-desc-btn">
+                                <div class="producto-text">
+    
+                                    <h2>{{pro.nombre}}</h2>
+                                    <h3>${{pro.precio}}</h3>
+                                </div>
+                                <div class="contanedor-btn">
+                                    <button (click)="addAlCarrito(pro)">Agregar al carrito</button>
+                                </div>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+
+                <div class="contenedor-listas" *ngIf="mostrarProductos">
+                    <li class="productos" *ngFor="let pro of productos | async">
+                        <div class="contenedor-img">
+                            <img src="{{pro.imagen}}" alt="">
+                        </div>
+                        <div class="contenedor-desc-btn">
+                            <div class="producto-text">
+                                <p>{{pro.descripcion}}</p>
+                                <h2>{{pro.nombre}}</h2>
+                                <h3>${{pro.precio}}</h3>
+                            </div>
+                            <div class="contanedor-btn">
+                                <button (click)="addAlCarrito(pro)">Agregar al carrito</button>
+                            </div>
+                        </div>
+                    </li>
+                </div>
             </div>
         </ul>
     </div>
-
-    <!--div *ngIf="categoriaSeleccionada === 'todos' || categoriaSeleccionada === 'ropa'" class="contenedor-productos">
-        <ul>
-            <div class="contenedor-listas">
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/06/a7/a9/06a7a95fb792ce3dfd55b792547cb76a.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/06/a7/a9/06a7a95fb792ce3dfd55b792547cb76a.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/06/a7/a9/06a7a95fb792ce3dfd55b792547cb76a.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/06/a7/a9/06a7a95fb792ce3dfd55b792547cb76a.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/06/a7/a9/06a7a95fb792ce3dfd55b792547cb76a.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/06/a7/a9/06a7a95fb792ce3dfd55b792547cb76a.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-            </div>
-        </ul>
-    </!--div>
-
-    <div *ngIf="categoriaSeleccionada === 'todos' || categoriaSeleccionada === 'tecno'" class="contenedor-productos">
-        <ul>
-            <div class="contenedor-listas">
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/4d/ce/e9/4dcee96ffd48ebfdf73ef5dd74d32574.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/4d/ce/e9/4dcee96ffd48ebfdf73ef5dd74d32574.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/4d/ce/e9/4dcee96ffd48ebfdf73ef5dd74d32574.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/4d/ce/e9/4dcee96ffd48ebfdf73ef5dd74d32574.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/4d/ce/e9/4dcee96ffd48ebfdf73ef5dd74d32574.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/4d/ce/e9/4dcee96ffd48ebfdf73ef5dd74d32574.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/4d/ce/e9/4dcee96ffd48ebfdf73ef5dd74d32574.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/4d/ce/e9/4dcee96ffd48ebfdf73ef5dd74d32574.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-            </div>
-        </ul>
-    </div>
-
-    <div *ngIf="categoriaSeleccionada === 'todos' || categoriaSeleccionada === 'hogar'" class="contenedor-productos">
-        <ul>
-            <div class="contenedor-listas">
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/d1/b6/9e/d1b69e9389f12703b6bebbbdc5d5224e.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/d1/b6/9e/d1b69e9389f12703b6bebbbdc5d5224e.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/d1/b6/9e/d1b69e9389f12703b6bebbbdc5d5224e.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/d1/b6/9e/d1b69e9389f12703b6bebbbdc5d5224e.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/d1/b6/9e/d1b69e9389f12703b6bebbbdc5d5224e.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/d1/b6/9e/d1b69e9389f12703b6bebbbdc5d5224e.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-            </div>
-        </ul>
-    </div>
-
-    <div *ngIf="categoriaSeleccionada === 'todos' || categoriaSeleccionada === 'gaming'" class="contenedor-productos">
-        <ul>
-            <div class="contenedor-listas">
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/61/e9/af/61e9af49bdc604b7d5d2b19832e34cea.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/61/e9/af/61e9af49bdc604b7d5d2b19832e34cea.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/61/e9/af/61e9af49bdc604b7d5d2b19832e34cea.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/61/e9/af/61e9af49bdc604b7d5d2b19832e34cea.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/61/e9/af/61e9af49bdc604b7d5d2b19832e34cea.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/61/e9/af/61e9af49bdc604b7d5d2b19832e34cea.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/61/e9/af/61e9af49bdc604b7d5d2b19832e34cea.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/61/e9/af/61e9af49bdc604b7d5d2b19832e34cea.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/61/e9/af/61e9af49bdc604b7d5d2b19832e34cea.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/61/e9/af/61e9af49bdc604b7d5d2b19832e34cea.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-            </div>
-        </ul>
-    </div>
-
-    <div-- *ngIf="categoriaSeleccionada === 'todos' || categoriaSeleccionada === 'electr'" class="contenedor-productos">
-        <ul>
-            <div class="contenedor-listas">
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/ff/b1/9d/ffb19d9a01d3778fd1be745a49b25779.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/ff/b1/9d/ffb19d9a01d3778fd1be745a49b25779.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/ff/b1/9d/ffb19d9a01d3778fd1be745a49b25779.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/ff/b1/9d/ffb19d9a01d3778fd1be745a49b25779.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/ff/b1/9d/ffb19d9a01d3778fd1be745a49b25779.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/ff/b1/9d/ffb19d9a01d3778fd1be745a49b25779.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/ff/b1/9d/ffb19d9a01d3778fd1be745a49b25779.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/ff/b1/9d/ffb19d9a01d3778fd1be745a49b25779.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/ff/b1/9d/ffb19d9a01d3778fd1be745a49b25779.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-                <li class="productos">
-                    <img src="https://i.pinimg.com/564x/ff/b1/9d/ffb19d9a01d3778fd1be745a49b25779.jpg" alt="">
-                    <div class="producto-text">
-                        <p>Descripcion sobre este producto. Describir su modelo y sus caracteristicas mas
-                            importantes
-                        </p>
-                        <h2>Mouse Gamer</h2>
-                        <h3>$19.99</h3>
-                    </div>
-                    <button>Agregar al carrito</button>
-                </li>
-            </div>
-        </ul>
-    </div-->
     <app-footer></app-footer>
 </div>

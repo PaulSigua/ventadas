@@ -38,3 +38,27 @@ export class MensajeUsuario {
     correo?: string;
     mensaje?: string;
 }
+
+export class Carrito {
+    codigo?: number;
+    detalles?: DetalleCarrito;
+    detalle?: number;
+}
+
+export class DetalleCarrito {
+    codigo?: number;
+    carrito?: number;
+    producto?: number;
+    nombreProducto?: string;
+    cantidad?: number;
+    total?: number;
+    subtotal?: number;
+    imagenProducto?: string;
+    detalle?: string;
+}
+
+export class CargarProducto {
+    carrito?: number;
+    producto?: number;
+    cantidad?: number;
+}

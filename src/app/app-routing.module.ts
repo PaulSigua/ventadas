@@ -7,6 +7,7 @@ import { ContactanosComponent } from './pages/contactanos/contactanos.component'
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { CuentaComponent } from './pages/cuenta/cuenta.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
+import { ValidarDatosPersonalesComponent } from './pages/validar-datos-personales/validar-datos-personales.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'pages/inicio', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'pages/carrito', component: CarritoComponent},
   {path: 'pages/login', component: CuentaComponent},
   {path: 'pages/clientes', component: ClientesComponent},
+  {path: 'pages/fs2r24r/datos-personales', component: ValidarDatosPersonalesComponent}
 ];
 
 @NgModule({

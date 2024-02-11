@@ -1,22 +1,29 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { ProductoService } from 'src/app/services-producto/producto.service';
 
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.scss']
 })
-export class InicioComponent {
+export class InicioComponent implements OnInit{
+
+  productos: any;
 
   @ViewChild('productContainer')
   productContainer!: ElementRef;
 
   constructor(private router: Router,
-    private renderer: Renderer2) {
+    private productoService: ProductoService) {
     window.scrollTo({
       top: 0
     })
+  }
+
+  ngOnInit(): void {
+    this.productos = this.productoService.getProductos();
   }
 
   irAproductos() {

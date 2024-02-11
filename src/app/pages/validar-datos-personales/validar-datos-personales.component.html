@@ -1,0 +1,41 @@
+<div class="container-main">
+    <app-menu></app-menu>
+    <div class="contenedor-atributos">
+        <div class="contenedor-title">
+            <h3>Por favor. Ingrese sus datos personales para continuar con su compra</h3>
+        </div>
+        <div class="contenedor-info">
+            <div class="contenedor-form">
+                <form action="">
+                    <td><label for="">Ingrese su número de cédula</label></td>
+                    <td><input type="text" name="id" id="" #cedula placeholder="cédula"></td>
+
+                    <td><label for="">Ingrese su nombre</label></td>
+                    <td><input type="text" name="name" id="" #nombre placeholder="nombre"></td>
+
+                    <td><label for="">Ingrese su correo electrónico</label></td>
+                    <td><input type="text" name="email" id="" #correo placeholder="correo"></td>
+
+                    <td><label for="">Ingrese la contraseña</label></td>
+                    <td><input type="password" name="password" id="" #contrasenia placeholder="contraseña"></td>
+
+                    <button>Continuar</button>
+                </form>
+            </div>
+            <div class="contenedor-datos">
+                <div class="contenedor-productos" *ngFor="let det of productos | async">
+                    <div><b>{{det.nombreProducto}}</b></div>
+                    <div>Cantidad: {{det.cantidad}}</div>
+                    <div>Subtotal: ${{det.subtotal}}</div>
+                    <div>Total: ${{det.total}}</div>
+                    <div><b>Valor a pagar: </b></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button (click)="confirmAction()" *ngIf="regresar">Regresar</button>
+
+</div>
+
+<app-footer></app-footer>
