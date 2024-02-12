@@ -1,0 +1,89 @@
+.contenedor-detalles {
+    margin: 50px;
+
+    .productos {
+        display: flex;
+        border: 1px solid #c6c6c6;
+        border-radius: 10px;
+        padding: 20px;
+        width: auto;
+        height: auto;
+
+        .contenedor-img {
+            h2 {
+                padding: 10px;
+            }
+
+            img {
+                width: 400px;
+                height: auto;
+                border-radius: 10px;
+            }
+        }
+
+        .contenedor-caracteristicas-descripcion {
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .producto-venta-info {
+            border-radius: 10px;
+            background-color: #f3f3f3;
+            width: 100%;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            margin: 30px;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            .contenedor-cantidad {
+                align-items: center;
+                justify-content: center;
+                background-color: #f0f0f0;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                max-width: 70px;
+                margin: auto;
+
+                .btn-cantidad {
+                    border: none;
+                    background: none;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+
+                span {
+                    margin: 0 10px;
+                }
+            }
+
+            .btn-add-carrito {
+                background-color: #000000;
+                padding: 5px;
+                border-radius: 10px;
+                margin: 5px;
+                width: 140px;
+                color: #fff;
+                border: 2px solid #000000;
+                cursor: pointer;
+
+                &:hover {
+                    border: 2px solid #000000;
+                    background-color: #fff;
+                    color: #000000;
+                }
+            }
+        }
+
+        .producto-venta-info .contenedor-btn {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    }
+}

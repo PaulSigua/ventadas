@@ -1,0 +1,50 @@
+<div class="contanainer-main">
+    <app-menu></app-menu>
+
+    <div class="contenedor-detalles">
+            <div class="productos" *ngFor="let p of producto">
+                <div class="contenedor-img">
+                    <h2>{{p.nombre}}</h2>
+                    <img src="{{p.imagen}}" alt="">
+                </div>
+                <div class="contenedor-caracteristicas-descripcion">
+                    <b><p>{{p.caracteristicas}}</p></b>
+                    <br>
+                    <h3>Características principales</h3>
+                    <p>{{p.descripcionGeneral}}</p>
+                </div>
+                <div class="producto-venta-info">
+                    <br>
+                    Este producto está garantizado por Ventadas 
+                    <br><br>
+                    Por el precio de <h3> ${{p.precio}}</h3>
+                    <br><br>
+
+                    <div>
+                        Añadir cantidad:
+                        <div class="contenedor-cantidad">
+                            <button class="btn-cantidad" (click)="decrement()">-</button>
+                            <span>{{ count }}</span>
+                            <button class="btn-cantidad" (click)="increment()">+</button>
+                        </div>
+                    </div>
+
+                    <img src="https://tiendamia.com/skin/frontend/traigo/traigo/images/tarjetas-gris_generica_EC.png" alt="">
+                    <div class="contenedor-btn">
+                        <button class="btn-add-carrito" (click)="addAlCarrito(p)">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+
+
+        <div class="contenedor-botones">
+
+        </div>
+
+        <div class="contenedor-mas-productos">
+
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+</div>

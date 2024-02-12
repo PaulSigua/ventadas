@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Categoria, Producto } from 'src/app/domain/cliente';
+import { Router } from '@angular/router';
+import { CargarProducto, Carrito, DetalleCarrito, Producto } from 'src/app/domain/cliente';
 import { ProductoService } from 'src/app/services-producto/producto.service';
 
 @Component({
@@ -12,14 +13,23 @@ export class ProductosComponent implements OnInit {
   productos: any;
 
   pro: Producto = new Producto();
+  cargar: CargarProducto = new CargarProducto();
+  car: Carrito = new Carrito();
+  det: DetalleCarrito = new DetalleCarrito();
+  detalles: DetalleCarrito[] = [];
+  productosBusqueda: Producto[] = [];
+  producto: Producto [] = [];
 
   isScrolled = false;
   seccion: string = '';
   openRopa: boolean = false;
+  mostrarResultados: boolean = false;
+  mostrarProductos: boolean = true;
 
   categoriaSeleccionada: string | undefined = 'todos';
 
-  constructor(private productoService: ProductoService) {
+  constructor(private productoService: ProductoService,
+    private router: Router) {
     window.scrollTo({
       top: 0
     })
@@ -38,6 +48,8 @@ export class ProductosComponent implements OnInit {
   }
 
   mostrarCategoria(categoria: string) {
+    this.mostrarResultados = false;
+    this.mostrarProductos = true;
     if (categoria == 'ropa') {
       console.log("seleccionado")
       this.productos = this.productoService.getCategoriaRopa();
@@ -58,4 +70,55 @@ export class ProductosComponent implements OnInit {
       top: 0
     })
   }
+
+  addAlCarrito(pro: Producto) {
+    const cargarDet = {
+      carrito: 1,
+      producto: pro.codigo,//necesito tu ayuda aqui
+      cantidad: 1//necesito tu ayuda aqui
+    }
+
+    this.cargar = cargarDet;
+
+    this.productoService.cargarProducto(this.cargar).subscribe(data => {
+      console.log(data);
+      this.det = new DetalleCarrito();
+      this.router.navigate([('pages/carrito')]);
+    });
+    console.log(this.cargar);
+  }
+
+  buscar(nombre: HTMLInputElement) {
+    this.mostrarResultados = true;
+    this.mostrarProductos = false;
+    console.log('Antes de buscar', this.mostrarResultados, this.mostrarProductos);
+    this.productoService.buscarProductos(nombre.value).subscribe({
+      next: (productos) => {
+        console.log(productos);
+        this.productosBusqueda = productos; // Asegurarse de que esto sea un arreglo.
+        console.log('Después de buscar', this.mostrarResultados, this.mostrarProductos);
+        this.ngOnInit();
+      },
+      error: (error) => {
+        alert('No se encontraron resultados');
+        console.error('Error al buscar productos', error);
+      }
+    });
+    this.ngOnInit();
+  }
+
+  mostrarProductoExistente(id: number) {
+    this.router.navigate(['pages/producto', id]);
+    this.productoService.getProductoById(id).subscribe({
+      next: (productos) => {
+        console.log(productos);
+        this.producto = productos;
+      },
+      error: (error) => {
+        //alert('No se encontraron resultados');
+        console.error('Error al buscar productos', error);
+      }
+    });
+  }
+
 }
