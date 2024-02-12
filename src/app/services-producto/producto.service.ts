@@ -51,9 +51,9 @@ export class ProductoService {
     return this.http.get<any>(url);
   }
 
-  getProductoById(id: number): Observable<Producto> {
-    let url = environment.WA_PATH + 'productos/id';
-    return this.http.get<Producto>(`${url}/${id}`);
+  getProductoById(id: number): Observable<Producto[]> {
+    let url = environment.WA_PATH + '/productos/id?codigo=' + id;
+    return this.http.get<Producto[]>(url);
   }
 
   cargarProducto(cargar: CargarProducto){

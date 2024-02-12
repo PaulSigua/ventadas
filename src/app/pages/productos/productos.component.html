@@ -62,12 +62,34 @@
                     </div>
                     <div class="contenedor-listas">
                         <li class="productos" *ngFor="let pro of productosBusqueda">
+                            <a (click)="mostrarProductoExistente(pro.codigo)">
+                                <div class="contenedor-img">
+                                    <img src="{{pro.imagen}}" alt="">
+                                </div>
+                                <div class="contenedor-desc-btn">
+                                    <div class="producto-text">
+                                        <p>{{pro.caracteristicas}}</p>
+                                        <h2>{{pro.nombre}}</h2>
+                                        <h3>${{pro.precio}}</h3>
+                                    </div>
+                                    <div class="contanedor-btn">
+                                        <button (click)="addAlCarrito(pro)">Agregar al carrito</button>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </div>
+                </div>
+
+                <div class="contenedor-listas" *ngIf="mostrarProductos">
+                    <li class="productos" *ngFor="let pro of productos | async">
+                        <a (click)="mostrarProductoExistente(pro.codigo)">
                             <div class="contenedor-img">
                                 <img src="{{pro.imagen}}" alt="">
                             </div>
                             <div class="contenedor-desc-btn">
                                 <div class="producto-text">
-    
+                                    <p>{{pro.caracteristicas}}</p>
                                     <h2>{{pro.nombre}}</h2>
                                     <h3>${{pro.precio}}</h3>
                                 </div>
@@ -75,25 +97,7 @@
                                     <button (click)="addAlCarrito(pro)">Agregar al carrito</button>
                                 </div>
                             </div>
-                        </li>
-                    </div>
-                </div>
-
-                <div class="contenedor-listas" *ngIf="mostrarProductos">
-                    <li class="productos" *ngFor="let pro of productos | async">
-                        <div class="contenedor-img">
-                            <img src="{{pro.imagen}}" alt="">
-                        </div>
-                        <div class="contenedor-desc-btn">
-                            <div class="producto-text">
-                                <p>{{pro.descripcion}}</p>
-                                <h2>{{pro.nombre}}</h2>
-                                <h3>${{pro.precio}}</h3>
-                            </div>
-                            <div class="contanedor-btn">
-                                <button (click)="addAlCarrito(pro)">Agregar al carrito</button>
-                            </div>
-                        </div>
+                        </a>
                     </li>
                 </div>
             </div>

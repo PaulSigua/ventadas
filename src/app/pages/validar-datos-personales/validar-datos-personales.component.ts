@@ -39,4 +39,8 @@ export class ValidarDatosPersonalesComponent implements OnInit {
   calcularValoraPagar() {
     
   }
+
+  continuar(){
+    this.router.navigate([('pages/sdfgf3n2s5/forma-pago')])
+  }
 }

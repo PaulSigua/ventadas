@@ -23,16 +23,16 @@
                         <ul>
                             <div class="contenedor-listas">
                                 <li class="productos" *ngFor="let pro of productos | async">
-                                    <img src="{{pro.imagen}}"
-                                        alt="">
-                                    <div class="producto-text">
-                                        <p>
-                                            {{pro.descripcion}}
-                                        </p>
-                                        <h2>{{pro.nombre}}</h2>
-                                        <h3>${{pro.precio}}</h3>
-                                    </div>
-                                    <button>Agregar al carrito</button>
+                                    <a (click)="mostrarProductoExistente(pro.codigo)">
+                                        <img src="{{pro.imagen}}" alt="">
+                                        <div class="producto-text">
+                                            <p>
+                                                {{pro.caracteristicas}}
+                                            </p>
+                                            <h2>{{pro.nombre}}</h2>
+                                            <h3>${{pro.precio}}</h3>
+                                        </div>
+                                    </a>
                                 </li>
                             </div>
                         </ul>

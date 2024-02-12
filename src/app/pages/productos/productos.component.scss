@@ -104,7 +104,7 @@
 .contenedor-productos {
     display: flex;
 
-    
+
     .contenedor-busqueda {
         .condicion-result {
             text-align: center;
@@ -116,6 +116,7 @@
                 text-align: center;
                 justify-content: center;
                 align-items: center;
+
                 h2 {
                     width: 100%;
                     padding: 10px;
@@ -154,7 +155,12 @@
                 border: 1px solid rgb(229, 229, 229);
                 border-radius: 10px;
                 transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                height: 470px;
 
+                a {
+                    cursor: pointer;
+                }
+                
                 &:hover {
                     border: 1px solid rgb(181, 181, 181);
                     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
@@ -164,7 +170,7 @@
                 .contenedor-img {
                     img {
                         width: 100%;
-                        height: 100%;
+                        height: 200px;
                         border-radius: 10px;
                     }
                 }
@@ -178,6 +184,9 @@
                 .producto-text {
                     border-radius: 10px;
                     background-color: #f3f3f3;
+                    height: 200px;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .contenedor-img {
@@ -187,7 +196,6 @@
                 &:hover {
                     border: 1px solid rgb(181, 181, 181);
                 }
-
 
                 button {
                     background-color: #000000;

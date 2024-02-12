@@ -17,7 +17,7 @@ export class Factura {
     cliente?: Cliente;
     total?: number;
     fechaEmision?: string;
-    detalles?: Detalle [];
+    detalles?: Detalle[];
 }
 
 export class Categoria {
@@ -26,11 +26,13 @@ export class Categoria {
 }
 
 export class Producto {
-    codigo?: number;
+    codigo?: any;
     nombre?: string;
     precio?: number;
     categoria?: Categoria;
     imagen?: string;
+    caracteristicas: any;
+    descripcionGeneral: any;
 }
 
 export class MensajeUsuario {
@@ -54,7 +56,7 @@ export class DetalleCarrito {
     total?: number;
     subtotal?: number;
     imagenProducto?: string;
-    detalle?: string;
+    caracteristica?: string;
 }
 
 export class CargarProducto {

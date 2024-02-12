@@ -18,6 +18,7 @@ export class ProductosComponent implements OnInit {
   det: DetalleCarrito = new DetalleCarrito();
   detalles: DetalleCarrito[] = [];
   productosBusqueda: Producto[] = [];
+  producto: Producto [] = [];
 
   isScrolled = false;
   seccion: string = '';
@@ -104,6 +105,20 @@ export class ProductosComponent implements OnInit {
       }
     });
     this.ngOnInit();
+  }
+
+  mostrarProductoExistente(id: number) {
+    this.router.navigate(['pages/producto', id]);
+    this.productoService.getProductoById(id).subscribe({
+      next: (productos) => {
+        console.log(productos);
+        this.producto = productos;
+      },
+      error: (error) => {
+        //alert('No se encontraron resultados');
+        console.error('Error al buscar productos', error);
+      }
+    });
   }
 
 }

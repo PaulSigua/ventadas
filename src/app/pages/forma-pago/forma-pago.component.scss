@@ -1,12 +1,7 @@
-.contenedor-atributos {
+.contenedor-metodo-pago {
     margin: 60px;
-    border: 1px solid ;
+    border: 1px solid;
     border-radius: 5px;
-    text-align: center;
-        
-    .pago-final{
-       padding-block-end: 10px; 
-    } 
 }
 
 .contenedor-title {
@@ -16,6 +11,7 @@
     margin-top: 0px;
     color: #fff;
     text-align: center;
+
 }
 
 .contenedor-info {
@@ -26,9 +22,6 @@
         display: grid;
         margin-right: 60px;
         width: 50%;
-        text-align: center;
-        justify-content: center;
-        align-items: center;
 
         form {
             display: grid;
@@ -44,6 +37,33 @@
                 &:hover {
                     border: 1px solid #a7a7a7;
                 }
+            }
+
+            .form-grupo,
+            .contenedor-secundario-form {
+                margin-bottom: 10px;
+            }
+
+            .contenedor-secundario-form {
+                display: flex;
+                justify-content: space-between;
+
+                .form-grupo {
+
+                    label {
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+
+                    input {
+                        border-radius: 5px;
+                        border: 1px solid #c6c6c6;
+                        outline: none;
+                        padding: 5px;
+                        width: 100%;
+                    }
+                }
+
             }
 
             button {
@@ -65,31 +85,9 @@
         }
     }
 
-
     .contenedor-datos {
-        display: grid;
-        width: 50%;
         border: 1px solid #000;
-        border-radius: 5px;
-        padding: 20px;
+        width: 50%;
     }
 
-
-}
-
-
-button {
-    background-color: #555555;
-    border-radius: 10px;
-    margin: 5px;
-    width: 100px;
-    color: #fff;
-    border: 2px solid #555555;
-    cursor: pointer;
-
-    &:hover {
-        border: 2px solid #555555;
-        background-color: #fff;
-        color: #555555;
-    }
 }

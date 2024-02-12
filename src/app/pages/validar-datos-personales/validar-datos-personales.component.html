@@ -7,6 +7,7 @@
         <div class="contenedor-info">
             <div class="contenedor-form">
                 <form action="">
+                    <h3>Datos personales</h3>
                     <td><label for="">Ingrese su número de cédula</label></td>
                     <td><input type="text" name="id" id="" #cedula placeholder="cédula"></td>
 
@@ -19,7 +20,7 @@
                     <td><label for="">Ingrese la contraseña</label></td>
                     <td><input type="password" name="password" id="" #contrasenia placeholder="contraseña"></td>
 
-                    <button>Continuar</button>
+                    <button (click)="continuar()">Continuar</button>
                 </form>
             </div>
             <div class="contenedor-datos">
@@ -28,10 +29,10 @@
                     <div>Cantidad: {{det.cantidad}}</div>
                     <div>Subtotal: ${{det.subtotal}}</div>
                     <div>Total: ${{det.total}}</div>
-                    <div><b>Valor a pagar: </b></div>
                 </div>
             </div>
         </div>
+        <div class="pago-final"><b>Valor a pagar: </b></div>
     </div>
 
     <button (click)="confirmAction()" *ngIf="regresar">Regresar</button>

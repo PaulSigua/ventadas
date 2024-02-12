@@ -25,6 +25,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { ValidarDatosPersonalesComponent } from './pages/validar-datos-personales/validar-datos-personales.component';
+import { FormaPagoComponent } from './pages/forma-pago/forma-pago.component';
+import { ProductoDetallesComponent } from './pages/producto-detalles/producto-detalles.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ValidarDatosPersonalesComponent } from './pages/validar-datos-personale
     CuentaComponent,
     FooterComponent,
     ClientesComponent,
-    ValidarDatosPersonalesComponent
+    ValidarDatosPersonalesComponent,
+    FormaPagoComponent,
+    ProductoDetallesComponent
   ],
   imports: [
     BrowserModule,

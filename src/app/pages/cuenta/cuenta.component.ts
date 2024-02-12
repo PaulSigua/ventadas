@@ -19,4 +19,9 @@ export class CuentaComponent {
     this.mostrarFormularioEstatico = false;
     this.mostrarFormulario = true;
   }
+
+  registrarse(){
+    this.mostrarFormularioEstatico = true;
+    this.mostrarFormulario = false;
+  }
 }

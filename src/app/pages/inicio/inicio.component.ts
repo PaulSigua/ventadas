@@ -11,7 +11,7 @@ import { ProductoService } from 'src/app/services-producto/producto.service';
 export class InicioComponent implements OnInit{
 
   productos: any;
-
+  producto: any [] = [];
   @ViewChild('productContainer')
   productContainer!: ElementRef;
 
@@ -56,6 +56,20 @@ export class InicioComponent implements OnInit{
     container.scroll({
       left: container.scrollLeft + direction * scrollStep,
       behavior: 'smooth'
+    });
+  }
+
+  mostrarProductoExistente(id: number) {
+    this.router.navigate(['pages/producto', id]);
+    this.productoService.getProductoById(id).subscribe({
+      next: (productos) => {
+        console.log(productos);
+        this.producto = productos;
+      },
+      error: (error) => {
+        //alert('No se encontraron resultados');
+        console.error('Error al buscar productos', error);
+      }
     });
   }
 }
