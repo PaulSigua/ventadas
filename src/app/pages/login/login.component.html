@@ -1,0 +1,40 @@
+<div class="contenedor-main">
+
+    <app-menu></app-menu>
+
+    <div class="contenedor-form">
+
+        <div class="text">
+            <h3>¿Aún no tienes una cuenta? <br></h3>
+
+            Se parte de nuestra familia, donde cientos de personas han conseguido una sonrisa
+        </div>
+
+        <form action="" [formGroup]="loginForm" (ngSubmit)="login()">
+
+            <h2>Iniciar Sesión</h2>
+
+            <div class="info">
+
+                <label for="">Ingrese su correo electrónico</label><br>
+                <input type="email" formControlName="correo" placeholder="correo" #correo><br>
+
+                <label for="">Ingrese su contraseña</label><br>
+                <input type="password" formControlName="contrasenia" placeholder="contraseña" #contrasenia><br>
+
+                <button type="submit">Aceptar</button>
+
+                <div class="cuenta-existente">
+                    ¿Aún no estás registrado? 
+                    <button class="btn-login" (click)="registrarse()">Registrarse</button>
+                </div>
+
+                <div class="ocurrioUnError" *ngIf="ocurrioUnError">
+                    <h4>Sus credendiales no coinciden</h4>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <app-footer></app-footer>
+</div>

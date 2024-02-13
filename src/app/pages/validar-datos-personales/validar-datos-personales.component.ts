@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DetalleCarrito, Producto } from 'src/app/domain/cliente';
-import { CarritoService } from 'src/app/services-carrito/carrito.service';
+import { CarritoService } from 'src/app/services/services-carrito/carrito.service';
 
 @Component({
   selector: 'app-validar-datos-personales',

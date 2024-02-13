@@ -69,3 +69,16 @@ export class CargarCuentaCarrito {
     cuenta?: number;
     carrito?: Carrito;
 }
+
+export class Cuenta {
+    nombre?: string;
+    apellido?: string;
+    correo?: string;
+    contrasenia?: string;
+    accedio?: boolean;
+}
+
+export class Credenciales {
+    correo?: string;
+    contrasenia?: string;
+}

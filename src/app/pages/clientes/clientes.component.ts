@@ -112,22 +112,6 @@ export class ClientesComponent implements OnInit {
     }
   }
 
-  /*guardarDetalle() {
-    if (this.det.nombre == null || this.det.cantidad == null || this.det.precio == null) {
-      alert("Debe llenar todos los campos");
-    } else {
-      this.clienteService.saveDetalle(this.det).subscribe(data => {
-        console.log(data);
-        if (data.codigo == 1) {
-          this.det = new Detalle();
-          this.ngOnInit();
-        } else {
-          alert("Error al insertar" + data.message)
-        }
-      });
-    }
-  }*/
-
   calcularTotal(factura: Factura): number {
     if (factura.detalles) {
       return factura.detalles.reduce((total, detalle) => {

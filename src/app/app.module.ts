@@ -13,7 +13,7 @@ import { CuentaComponent } from './pages/cuenta/cuenta.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientesComponent } from './pages/clientes/clientes.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
@@ -27,6 +27,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ValidarDatosPersonalesComponent } from './pages/validar-datos-personales/validar-datos-personales.component';
 import { FormaPagoComponent } from './pages/forma-pago/forma-pago.component';
 import { ProductoDetallesComponent } from './pages/producto-detalles/producto-detalles.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
 
 @NgModule({
   declarations: [
@@ -42,12 +44,15 @@ import { ProductoDetallesComponent } from './pages/producto-detalles/producto-de
     ClientesComponent,
     ValidarDatosPersonalesComponent,
     FormaPagoComponent,
-    ProductoDetallesComponent
+    ProductoDetallesComponent,
+    LoginComponent,
+    RegistrarseComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,

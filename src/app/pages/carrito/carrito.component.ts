@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, empty, finalize, isEmpty, of } from 'rxjs';
-import { Carrito, Producto } from 'src/app/domain/cliente';
-import { CarritoService } from 'src/app/services-carrito/carrito.service';
-import { ProductoService } from 'src/app/services-producto/producto.service';
+import { CarritoService } from 'src/app/services/services-carrito/carrito.service';
 
 @Component({
   selector: 'app-carrito',

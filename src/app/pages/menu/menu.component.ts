@@ -43,7 +43,7 @@ export class MenuComponent implements OnInit {
   }
 
   irACreacionCuenta() {
-    this.router.navigate([('pages/login')]);
+    this.router.navigate([('/pages/login')]);
   }
 
   @HostListener('window:scroll', [])

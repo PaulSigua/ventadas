@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CargarProducto, Carrito, DetalleCarrito, Producto } from 'src/app/domain/cliente';
-import { ProductoService } from 'src/app/services-producto/producto.service';
+import { ProductoService } from 'src/app/services/services-producto/producto.service';
 
 @Component({
   selector: 'app-productos',

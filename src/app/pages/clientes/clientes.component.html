@@ -7,15 +7,15 @@
             <form action="">
                 <tr>
                     <td>DNI</td>
-                    <td><input type="text" name="txtDNI" [(ngModel)]="cli.dni"></td>
+                    <td><input type="text" name="txtDNI" #dni></td>
                 </tr>
                 <tr>
                     <td>Nombre</td>
-                    <td><input type="text" name="txtNombre" [(ngModel)]="cli.nombre"></td>
+                    <td><input type="text" name="txtNombre" #nombre></td>
                 </tr>
                 <tr>
                     <td>Direccion</td>
-                    <td><input type="text" name="txtDireccion" [(ngModel)]="cli.direccion"></td>
+                    <td><input type="text" name="txtDireccion" #direccion></td>
                 </tr>
 
                 <button (click)="guardar()" *ngIf="mostrarBotonGuardar">Guardar</button>
@@ -54,11 +54,11 @@
             <form action="">
                 <tr>
                     <td>Numero de Factura</td>
-                    <td><input type="text" name="txtDNI" [(ngModel)]="fac.numero"></td>
+                    <td><input type="text" name="txtDNI" #numFactura></td>
                 </tr>
                 <tr>
                     <td>Cliente</td>
-                    <select name="cliente" id="" [(ngModel)]="fac.cliente" (ngModelChange)="fac.cliente = $event">
+                    <select name="cliente" id="" #cliente>
                         <option value="" [disabled]="'Seleccionar'">Seleccionar</option>
                         <option value="" *ngFor="let c of clientes | async" [ngValue]="c">{{c.dni}}</option>
                     </select>
@@ -70,7 +70,7 @@
 
                 <tr>
                     <td>Fecha de emision</td>
-                    <td><input type="date" name="txtDireccion" [(ngModel)]="fac.fechaEmision"></td>
+                    <td><input type="date" name="txtDireccion" #fecha></td>
                 </tr>
 
             </form>
@@ -84,16 +84,16 @@
                 <form action="">
                     <tr>
                         <td>Nombre</td>
-                        <td><input type="text" name="txtDNI" [(ngModel)]="det.nombre"></td>
+                        <td><input type="text" name="txtDNI" #nombre></td>
                     </tr>
                     <tr>
                         <td>Cantidad</td>
-                        <td><input type="number" name="txtDireccion" [(ngModel)]="det.cantidad"></td>
+                        <td><input type="number" name="txtDireccion" #cantidad></td>
                     </tr>
 
                     <tr>
                         <td>Precio</td>
-                        <td><input type="number" name="txtDireccion" [(ngModel)]="det.precio"></td>
+                        <td><input type="number" name="txtDireccion" #precio></td>
                     </tr>
 
                     <button (click)="guardarDet()">Guardar</button>

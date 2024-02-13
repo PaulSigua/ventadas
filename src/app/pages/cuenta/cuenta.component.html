@@ -2,65 +2,7 @@
 
     <app-menu></app-menu>
 
-    <div class="contenedor-form">
-
-        <div class="text">
-            <h3>¿Aún no tienes una cuenta? <br></h3>
-
-            Se parte de nuestra familia, donde cientos de personas han conseguido una sonrisa
-        </div>
-
-        <form action="" *ngIf="mostrarFormulario">
-
-            <h2>Iniciar Sesión</h2>
-
-            <div class="info">
-
-                <label for="">Ingrese su correo electrónico</label><br>
-                <input type="text" placeholder="correo"><br>
-
-                <label for="">Ingrese su contraseña</label><br>
-                <input type="password" placeholder="contraseña"><br>
-
-                <button>Aceptar</button>
-
-                <div class="cuenta-existente">
-                    ¿Aún no estás registrado? 
-                    <button class="btn-login" (click)="registrarse()">Registrarse</button>
-                </div>
-            </div>
-        </form>
-
-        <form action="" *ngIf="mostrarFormularioEstatico">
-
-            <h2>Registrarse</h2>
-
-            <div class="info">
-                <label for="">Ingrese su nombre</label><br>
-                <input type="text" placeholder="nombre"><br>
-
-                <label for="">Ingrese su apellido</label><br>
-                <input type="text" placeholder="apellido"><br>
-
-                <label for="">Ingrese su correo electrónico</label><br>
-                <input type="text" placeholder="correo"><br>
-
-                <label for="">Ingrese su contraseña</label><br>
-                <input type="password" placeholder="contraseña nueva"><br>
-
-                <label for="">Confirme su contraseña</label><br>
-                <input type="password" placeholder="confirmar contraseña"><br>
-
-                <button>Aceptar</button>
-
-                <div class="cuenta-existente">
-                    ¿Ya tienes una cuenta? 
-                    <button class="btn-login" (click)="login()">Iniciar Sesión</button>
-                </div>
-                
-            </div>
-        </form>
-    </div>
+    
 
     <app-footer></app-footer>
 </div>

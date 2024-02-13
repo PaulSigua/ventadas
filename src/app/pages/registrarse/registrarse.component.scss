@@ -89,7 +89,7 @@
                 }
             }
 
-            .OcurrioUnError {
+            .ocurrioUnError {
                 display: flex;
                 text-align: center;
                 justify-content: center;
@@ -105,6 +105,22 @@
                 }
             }
     
+            .ocurrioUnError-contrasenia {
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+    
+                h4 {
+                    background-color: #ffcbcb;
+                    border: 1px solid #ff0000;
+                    text-align: center;
+                    border-radius: 5px;
+                    color: #ff4343;
+                    width: 350px;
+                }
+            }
+
             .todoBien {
                 display: flex;
                 text-align: center;

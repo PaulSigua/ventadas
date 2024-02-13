@@ -10,6 +10,8 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { ValidarDatosPersonalesComponent } from './pages/validar-datos-personales/validar-datos-personales.component';
 import { FormaPagoComponent } from './pages/forma-pago/forma-pago.component';
 import { ProductoDetallesComponent } from './pages/producto-detalles/producto-detalles.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'pages/inicio', pathMatch: 'full'},
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path: 'pages/nosotros', component: NosotrosComponent},
   {path: 'pages/contactanos', component: ContactanosComponent},
   {path: 'pages/carrito', component: CarritoComponent},
-  {path: 'pages/login', component: CuentaComponent},
+  {path: 'pages/login', component: LoginComponent},
+  {path: 'pages/register', component: RegistrarseComponent},
+  {path: 'pages/cuenta-personal', component: CuentaComponent},
   {path: 'pages/clientes', component: ClientesComponent},
   {path: 'pages/fs2r24r/datos-personales', component: ValidarDatosPersonalesComponent},
   {path: 'pages/sdfgf3n2s5/forma-pago', component: FormaPagoComponent},
