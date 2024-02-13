@@ -13,7 +13,7 @@ import { CuentaComponent } from './pages/cuenta/cuenta.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientesComponent } from './pages/clientes/clientes.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
@@ -46,8 +46,9 @@ import { ProductoDetallesComponent } from './pages/producto-detalles/producto-de
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,

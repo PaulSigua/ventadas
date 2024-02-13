@@ -10,6 +10,7 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { ValidarDatosPersonalesComponent } from './pages/validar-datos-personales/validar-datos-personales.component';
 import { FormaPagoComponent } from './pages/forma-pago/forma-pago.component';
 import { ProductoDetallesComponent } from './pages/producto-detalles/producto-detalles.component';
+import { ComprafinalizadaComponent } from './pages/comprafinalizada/comprafinalizada.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'pages/inicio', pathMatch: 'full'},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'pages/clientes', component: ClientesComponent},
   {path: 'pages/fs2r24r/datos-personales', component: ValidarDatosPersonalesComponent},
   {path: 'pages/sdfgf3n2s5/forma-pago', component: FormaPagoComponent},
-  {path: 'pages/producto/:id', component: ProductoDetallesComponent}
+  {path: 'pages/producto/:id', component: ProductoDetallesComponent},
+  {path: 'pages/comprafinalizada', component: ComprafinalizadaComponent}
 ];
 
 @NgModule({

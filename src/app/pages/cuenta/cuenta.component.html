@@ -12,25 +12,31 @@
 
         <form action="" *ngIf="mostrarFormularioEstatico">
 
+            
             <h2>Registrarse</h2>
 
             <div class="info">
+
+                
                 <label for="">Ingrese su nombre</label><br>
-                <input type="text" placeholder="nombre"><br>
+                <input type="text" placeholder="Ingrese su nombre" name="nombre" [(ngModel)]="us.nombre"><br>
 
                 <label for="">Ingrese su apellido</label><br>
-                <input type="text" placeholder="apellido"><br>
+                <input type="text" placeholder="Ingrese su apellido" name="apellido" [(ngModel)]="us.apellido"><br>
+
+                <label for="">Ingrese su cedula</label><br>
+                <input type="text" placeholder="Ingrese npmsu cedula" name="cedula" [(ngModel)]="us.cedula"><br>
 
                 <label for="">Ingrese su correo electrónico</label><br>
-                <input type="text" placeholder="correo"><br>
+                <input type="text" placeholder="Ingrese su correo electronico"  name="correo" [(ngModel)]="us.correo"><br>
 
                 <label for="">Ingrese su contraseña</label><br>
-                <input type="password" placeholder="contraseña nueva"><br>
+                <input type="password" placeholder="Minimo  8 caracteres" name="password" [(ngModel)]="us.password"><br>
 
                 <label for="">Confirme su contraseña</label><br>
-                <input type="password" placeholder="confirmar contraseña"><br>
+                <input type="password" placeholder="Confirmar contraseña" name="confirmPassword" [(ngModel)]="us.confirmPassword"><br>
 
-                <button>Aceptar</button>
+                <button (click)="guardar()" >Aceptar</button>
 
                 <div class="cuenta-existente">
                     ¿Ya tienes una cuenta? 
@@ -41,26 +47,24 @@
         </form>
 
         <form action="" *ngIf="mostrarFormulario">
-
             <h2>Iniciar Sesión</h2>
-
             <div class="info">
-
                 <label for="">Ingrese su correo electrónico</label><br>
-                <input type="text" placeholder="correo"><br>
-
+                <input type="text" placeholder="correo" name="correo" [(ngModel)]="credenciales.correo"><br>
+        
                 <label for="">Ingrese su contraseña</label><br>
-                <input type="password" placeholder="contraseña"><br>
-
-                <button>Aceptar</button>
-
-                <div class="cuenta-existente">
-                    ¿Aún no estás registrado? 
-                    <button class="btn-login" (click)="registrarse()">Registrarse</button>
-                </div>
+                <input type="password" placeholder="contraseña" name="contrasena" [(ngModel)]="credenciales.password"><br>
+        
+                <button type="submit" (click)="iniciarSesion()">Aceptar</button>
             </div>
         </form>
+        <div *ngIf="usuarioLogeado">
+            <h2>Datos del usuario</h2>
+            <p>Nombre: {{ usuarioLogeado.nombre }}</p>
+            <p>Apellido: {{ usuarioLogeado.apellido }}</p>
+            <p>Cedula: {{usuarioLogeado.cedula}}</p>
+            <p>Correo electrónico: {{ usuarioLogeado.correo }}</p>
+            <!-- Agrega más campos según la estructura de tu objeto User -->
+          </div>
+          <app-footer></app-footer>
     </div>
-
-    <app-footer></app-footer>
-</div>

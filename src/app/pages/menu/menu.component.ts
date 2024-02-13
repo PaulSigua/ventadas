@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-menu',
@@ -20,7 +21,9 @@ export class MenuComponent implements OnInit {
   showSidenav = false;
   paginas = true;
 
-  constructor(
+  nombreUsuario: string = '';
+
+  constructor(private usuarioService: UsuarioService,
     private router: Router,
     private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver.observe([
@@ -34,8 +37,13 @@ export class MenuComponent implements OnInit {
     });
   }
 
+  // ngOnInit(): void {
+  //   //this.showSidenav = false;
+  // }
+
   ngOnInit(): void {
-    //this.showSidenav = false;
+    // Obtén el nombre de usuario del servicio UsuarioService
+    this.nombreUsuario = this.usuarioService.nombreUsuario;
   }
 
   irAlCarrito() {

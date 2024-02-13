@@ -64,3 +64,20 @@ export class CargarProducto {
     producto?: number;
     cantidad?: number;
 }
+
+
+/*Mi parte*/
+export class User{
+    userid?: number;
+    nombre?: string;
+    apellido?: string;
+    cedula?: string;
+    correo?: string;
+    password?: string;
+    confirmPassword?: string; 
+}
+
+export class Credenciales {
+    correo?: string;
+    password?: string
+}

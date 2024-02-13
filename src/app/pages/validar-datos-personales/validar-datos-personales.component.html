@@ -8,20 +8,20 @@
             <div class="contenedor-form">
                 <form action="">
                     <h3>Datos personales</h3>
-                    <td><label for="">Ingrese su número de cédula</label></td>
-                    <td><input type="text" name="id" id="" #cedula placeholder="cédula"></td>
-
-                    <td><label for="">Ingrese su nombre</label></td>
-                    <td><input type="text" name="name" id="" #nombre placeholder="nombre"></td>
-
-                    <td><label for="">Ingrese su correo electrónico</label></td>
-                    <td><input type="text" name="email" id="" #correo placeholder="correo"></td>
-
-                    <td><label for="">Ingrese la contraseña</label></td>
-                    <td><input type="password" name="password" id="" #contrasenia placeholder="contraseña"></td>
-
+                    <label for="cedula">Ingrese su número de cédula</label>
+                    <input type="text" name="cedula" id="cedula" [(ngModel)]="cedula" placeholder="cédula">
+                  
+                    <label for="nombre">Ingrese su nombre</label>
+                    <input type="text" name="nombre" id="nombre" [(ngModel)]="nombre" placeholder="nombre">
+                  
+                    <label for="correo">Ingrese su correo electrónico</label>
+                    <input type="text" name="correo" id="correo" [(ngModel)]="correo" placeholder="correo">
+                  
+                    <label for="contrasenia">Ingrese la contraseña</label>
+                    <input type="password" name="contrasenia" id="contrasenia" [(ngModel)]="contrasenia" placeholder="contraseña">
+                  
                     <button (click)="continuar()">Continuar</button>
-                </form>
+                  </form>
             </div>
             <div class="contenedor-datos">
                 <div class="contenedor-productos" *ngFor="let det of productos | async">

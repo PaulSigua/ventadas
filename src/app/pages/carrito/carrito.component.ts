@@ -4,6 +4,7 @@ import { catchError, empty, finalize, isEmpty, of } from 'rxjs';
 import { Carrito, Producto } from 'src/app/domain/cliente';
 import { CarritoService } from 'src/app/services-carrito/carrito.service';
 import { ProductoService } from 'src/app/services-producto/producto.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-carrito',
@@ -16,7 +17,9 @@ export class CarritoComponent implements OnInit{
   registraProductos: boolean = false;
   count: number = 1;
 
-  constructor(private router: Router,
+  isLoggedIn: boolean = false;
+
+  constructor(private usuarioService: UsuarioService,private router: Router,
     private carritoService: CarritoService){
     window.scrollTo({
       top: 0
@@ -24,6 +27,7 @@ export class CarritoComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.isLoggedIn = this.usuarioService.isLoggedIn;
     this.carritos = this.carritoService.getDetallesCarrito();
     if(this.carritos == isEmpty){
       this.registraProductos == true
@@ -63,6 +67,14 @@ export class CarritoComponent implements OnInit{
   }
   
   comprar(){
-    this.router.navigate([('pages/fs2r24r/datos-personales')]);
+    console.log(this.isLoggedIn)
+    if (this.isLoggedIn) { // Comprueba si el usuario está logeado
+      this.router.navigate([('pages/fs2r24r/datos-personales')]);
+    } else {
+      // Si el usuario no está logeado, redirige a la página de inicio de sesión
+      this.router.navigate(['pages/login']);
+    }
+    
+    // this.router.navigate([('pages/fs2r24r/datos-personales')]);
   }
 }
