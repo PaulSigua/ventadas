@@ -14,7 +14,6 @@ export class CarritoComponent implements OnInit{
 
   carritos?: any;
   registraProductos: boolean = false;
-  count: number = 1;
 
   constructor(private router: Router,
     private carritoService: CarritoService){
@@ -25,22 +24,13 @@ export class CarritoComponent implements OnInit{
 
   ngOnInit(): void {
     this.carritos = this.carritoService.getDetallesCarrito();
+    this.calcularSumaTotal(this.carritos.total);
     if(this.carritos == isEmpty){
       this.registraProductos == true
     } else {
       this.registraProductos = false
     }
 
-  }
-
-  increment() {
-    this.count++;
-  }
-
-  decrement() {
-    if (this.count > 1) {
-      this.count--;
-    }
   }
 
   irAproductos(){
@@ -60,9 +50,17 @@ export class CarritoComponent implements OnInit{
       console.log('Producto eliminado: ', data);
     });
     this.ngOnInit();
+
+    window.scrollTo({
+      top: 300
+    })
   }
   
   comprar(){
     this.router.navigate([('pages/fs2r24r/datos-personales')]);
+  }
+
+  calcularSumaTotal(total: number){
+    
   }
 }

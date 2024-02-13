@@ -56,11 +56,17 @@
     <div class="contenedor-productos">
         <ul>
             <div class="contenedor-busqueda">
+                
+                <div class="hay-resultados-if" *ngIf="hayResultados">
+                    <h4>No se encontraron resultados</h4>
+                </div>
+
                 <div class="condicion-result" *ngIf="mostrarResultados">
                     <div class="name-result">
                         <h2>Resultados de la busqueda</h2>
                     </div>
                     <div class="contenedor-listas">
+
                         <li class="productos" *ngFor="let pro of productosBusqueda">
                             <a (click)="mostrarProductoExistente(pro.codigo)">
                                 <div class="contenedor-img">

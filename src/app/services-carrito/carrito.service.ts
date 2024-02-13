@@ -21,4 +21,9 @@ export class CarritoService {
     console.log(url);
     return this.http.delete<any>(url);
   }
+
+  getTotalPago(){
+    let url = environment.WA_PATH + '/detallesCarrito/calcular?total=1';
+    return this.http.get<any>(url);
+  }
 }

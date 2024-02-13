@@ -28,6 +28,13 @@
                 <button (click)="guardarMensaje(nombreUsuario, correo, mensajeUsuario)">Enviar</button>
 
             </div>
+            <div class="hay-resultados-if" *ngIf="hayResultados">
+                <h4>Ocurrio un error</h4>
+            </div>
+
+            <div class="hay-enviar-if" *ngIf="mensajeCorrecto">
+                <h4>¡Su mensaje fue enviado de manera correcta!</h4>
+            </div>
         </form>
     </div>
 

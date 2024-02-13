@@ -25,6 +25,7 @@ export class ProductosComponent implements OnInit {
   openRopa: boolean = false;
   mostrarResultados: boolean = false;
   mostrarProductos: boolean = true;
+  hayResultados: boolean = false;
 
   categoriaSeleccionada: string | undefined = 'todos';
 
@@ -48,6 +49,7 @@ export class ProductosComponent implements OnInit {
   }
 
   mostrarCategoria(categoria: string) {
+    this.hayResultados = false;
     this.mostrarResultados = false;
     this.mostrarProductos = true;
     if (categoria == 'ropa') {
@@ -74,8 +76,8 @@ export class ProductosComponent implements OnInit {
   addAlCarrito(pro: Producto) {
     const cargarDet = {
       carrito: 1,
-      producto: pro.codigo,//necesito tu ayuda aqui
-      cantidad: 1//necesito tu ayuda aqui
+      producto: pro.codigo,
+      cantidad: 1
     }
 
     this.cargar = cargarDet;
@@ -94,14 +96,16 @@ export class ProductosComponent implements OnInit {
     console.log('Antes de buscar', this.mostrarResultados, this.mostrarProductos);
     this.productoService.buscarProductos(nombre.value).subscribe({
       next: (productos) => {
+        this.hayResultados = false;
         console.log(productos);
-        this.productosBusqueda = productos; // Asegurarse de que esto sea un arreglo.
+        this.productosBusqueda = productos;
         console.log('Después de buscar', this.mostrarResultados, this.mostrarProductos);
         this.ngOnInit();
       },
       error: (error) => {
-        alert('No se encontraron resultados');
+        this.hayResultados = true;
         console.error('Error al buscar productos', error);
+        this.mostrarResultados = false;
       }
     });
     this.ngOnInit();

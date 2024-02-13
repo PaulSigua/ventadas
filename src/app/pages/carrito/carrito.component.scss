@@ -22,7 +22,6 @@
 
 .productos-add {
     margin: 40px;
-    border: 1px solid rgb(138, 138, 138);
     border-radius: 10px;
     padding: 20px;
     margin-block-end: 20px;
@@ -177,6 +176,22 @@
 
         .producto .contenedor-info-producto {
             display: grid;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .productos-add {
+        margin: 0px;
+        padding: 0px;
+
+        h1{
+            padding-left: 10px;
+        }
+
+        .producto {
+            margin: 5px;
+            padding: 0px;
         }
     }
 }

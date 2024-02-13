@@ -10,6 +10,8 @@ import { ClienteService } from 'src/app/services/cliente.service';
 export class ContactanosComponent implements OnInit{
 
   men: MensajeUsuario = new MensajeUsuario();
+  hayResultados: boolean = false;
+  mensajeCorrecto: boolean = false;
 
   constructor(private clienteServices: ClienteService){
     window.scrollTo({
@@ -23,8 +25,11 @@ export class ContactanosComponent implements OnInit{
 
   guardarMensaje(nombreUsuario: HTMLInputElement, correo: HTMLInputElement, mensajeUsuario: HTMLTextAreaElement){
     if (!nombreUsuario.value || !correo.value || !mensajeUsuario.value) {
-      alert('Debe completar todos los campos')
+      this.mensajeCorrecto = false;
+      this.hayResultados = true;
     } else {
+
+      this.hayResultados = false;
       const mensaje = {
         nombre: nombreUsuario.value,
         correo: correo.value,
@@ -44,7 +49,7 @@ export class ContactanosComponent implements OnInit{
 
         
       })
-      alert('¡Su mensaje se envio de manera correcta!')
+      this.mensajeCorrecto = true;
     }
   }
 }

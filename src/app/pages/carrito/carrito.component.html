@@ -10,6 +10,7 @@
         <div class="no-registra-productos" *ngIf="registraProductos">
             No registra productos
         </div>
+        <h1>Mi Carrito</h1>
         <div class="producto" *ngFor="let carrito of carritos | async">
             <div class="nombre-producto">
                 <h2>{{carrito.nombreProducto}}</h2>
@@ -28,15 +29,7 @@
                     <div class="precio"><b>Precio del producto:</b> ${{carrito.precio}}</div>
                     <div class="subtotal"><b>Subtotal:</b> ${{carrito.subtotal}}</div>
                     <div class="total"><b>Total + iva:</b> ${{carrito.total}}</div>
-
-                    <br>
-                    <div><b>Añadir cantidad:</b>
-                        <div class="contenedor-cantidad">
-                            <button (click)="decrement()">-</button>
-                            <span>{{ count }}</span>
-                            <button (click)="increment()">+</button>
-                        </div>
-                    </div>
+                    <div ></div>
                 </div>
             </div>
             <div class="btn-eliminar-prodcuto">

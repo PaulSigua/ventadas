@@ -64,3 +64,8 @@ export class CargarProducto {
     producto?: number;
     cantidad?: number;
 }
+
+export class CargarCuentaCarrito {
+    cuenta?: number;
+    carrito?: Carrito;
+}

@@ -13,19 +13,19 @@ export class ClienteService {
   constructor(private http: HttpClient) { }//Cuarta parte
 
   getClientes(){
-    let url = environment.WA_PATH+ '/clientes/list';
+    let url = environment.WA_PATH+ '/cuenta/list';
     console.log(url);
     return this.http.get<any>(url);
   }
   
-  getFacturas(){
+  /*getFacturas(){
     let url = environment.WA_PATH + '/facturas/list';
     console.log(url);
     return this.http.get<any>(url);
-  }
+  }*/
 
   saveCliente(cliente: Cliente){
-    let url = environment.WA_PATH + '/clientes';
+    let url = environment.WA_PATH + '/cuenta';
     return this.http.post<any>(url, cliente);
   }
 
@@ -35,12 +35,12 @@ export class ClienteService {
   }
 
   updateCliente(cliente: Cliente){
-    let url = environment.WA_PATH + '/clientes'
+    let url = environment.WA_PATH + '/cuenta'
     return this.http.put<any>(url, cliente);
   }
 
   deleteCliente(cliente: number): Observable<any>{
-    let url = environment.WA_PATH + '/clientes?id=' + cliente;
+    let url = environment.WA_PATH + '/cuenta?id=' + cliente;
     console.log(url);
     return this.http.delete<any>(url);
   }

@@ -13,6 +13,7 @@ export class ValidarDatosPersonalesComponent implements OnInit {
   productos: any;
   det: DetalleCarrito = new DetalleCarrito();
   regresar: boolean = true;
+  total: number = 0;
 
   constructor(private carritoService: CarritoService,
     private router: Router) {
@@ -23,6 +24,7 @@ export class ValidarDatosPersonalesComponent implements OnInit {
 
   ngOnInit(): void {
     this.productos = this.carritoService.getDetallesCarrito();
+    this.getTotalPago();
   }
 
   confirmAction() {
@@ -36,9 +38,16 @@ export class ValidarDatosPersonalesComponent implements OnInit {
     }
   }
 
-  calcularValoraPagar() {
-    
+  getTotalPago(): void {
+    this.carritoService.getTotalPago().subscribe({
+      next: (response) => {
+        this.total = response.total;
+        console.log(this.total)
+      },
+      error: (e) => console.error(e)
+    });
   }
+  
 
   continuar(){
     this.router.navigate([('pages/sdfgf3n2s5/forma-pago')])

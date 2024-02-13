@@ -29,7 +29,7 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit(): void {
     this.clientes = this.clienteService.getClientes();
-    this.facturas = this.clienteService.getFacturas();
+    //this.facturas = this.clienteService.getFacturas();
   }
 
   cancelar() {

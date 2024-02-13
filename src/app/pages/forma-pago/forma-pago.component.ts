@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class FormaPagoComponent {
 
+  constructor () {
+    window.scrollTo({
+      top: 0
+    })
+  }
 }

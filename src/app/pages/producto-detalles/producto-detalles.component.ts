@@ -57,8 +57,8 @@ export class ProductoDetallesComponent implements OnInit{
   addAlCarrito(pro: Producto) {
     const cargarDet = {
       carrito: 1,
-      producto: pro.codigo,//necesito tu ayuda aqui
-      cantidad: 1//necesito tu ayuda aqui
+      producto: pro.codigo,
+      cantidad: this.count
     }
 
     this.cargar = cargarDet;
