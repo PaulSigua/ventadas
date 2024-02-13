@@ -123,7 +123,6 @@ export class CuentaComponent{
     const decenaSuperior = total + (10 - modulo);
     const digitoCalculado = decenaSuperior - total;
   
-    // Comprobar que el dígito calculado coincida con el dígito verificador
     return digitoCalculado === digitoVerificador;
   }
 
@@ -145,9 +144,7 @@ export class CuentaComponent{
     this.usuarioService.iniciarSesion(this.credenciales).subscribe(
       data => {
         console.log(data);
-        // Guarda el nombre de usuario en el servicio UsuarioService
         if (data.nombre !== undefined && data.apellido !== undefined) {
-          // Guarda el nombre de usuario en el servicio UsuarioService
           this.usuarioService.actualizarNombreUsuario(data.nombre, data.apellido);
         }
         // Redirige a la nueva página
