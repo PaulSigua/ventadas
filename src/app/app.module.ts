@@ -9,7 +9,6 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { ContactanosComponent } from './pages/contactanos/contactanos.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
-import { CuentaComponent } from './pages/cuenta/cuenta.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientesComponent } from './pages/clientes/clientes.component';
@@ -39,7 +38,6 @@ import { RegistrarseComponent } from './pages/registrarse/registrarse.component'
     NosotrosComponent,
     ContactanosComponent,
     CarritoComponent,
-    CuentaComponent,
     FooterComponent,
     ClientesComponent,
     ValidarDatosPersonalesComponent,
@@ -47,12 +45,12 @@ import { RegistrarseComponent } from './pages/registrarse/registrarse.component'
     ProductoDetallesComponent,
     LoginComponent,
     RegistrarseComponent,
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,
@@ -60,6 +58,7 @@ import { RegistrarseComponent } from './pages/registrarse/registrarse.component'
     MatMenuModule,
     MatInputModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     AppRoutingModule //Para la conexion con Eclipse primero importamos esto
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

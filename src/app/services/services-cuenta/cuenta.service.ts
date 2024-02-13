@@ -25,4 +25,9 @@ export class CuentaService {
     let url = environment.WA_PATH + '/cuenta/validar-login';
     return this.http.post<any>(url, credenciales)
   }
+
+  getCuentaById(codigo: any){
+    let url = environment.WA_PATH + '/cuenta?codigo=' + codigo;
+    return this.http.get<any>(url, codigo);
+  }
 }

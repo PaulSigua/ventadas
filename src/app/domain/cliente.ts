@@ -79,6 +79,7 @@ export class Cuenta {
 }
 
 export class Credenciales {
+    codigo: any;
     correo?: string;
     contrasenia?: string;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Credenciales, Cuenta } from 'src/app/domain/cliente';
 import { CuentaService } from 'src/app/services/services-cuenta/cuenta.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class LoginComponent implements OnInit{
 
   ocurrioUnError: boolean = false;
   loginForm: FormGroup;
+  formulario: boolean = true;
+  mostrarUsuario: boolean = true;
 
   constructor(private cuentaService: CuentaService,
     private fb: FormBuilder,
@@ -33,7 +36,7 @@ export class LoginComponent implements OnInit{
   login() {
     if (this.loginForm.valid) {
       this.cuentaService.login(this.loginForm.value).subscribe(data => {
-        this.router.navigate([('/pages/cuenta-personal')]);
+
         this.ocurrioUnError = false;
         console.log('login exitoso' + data);
       }

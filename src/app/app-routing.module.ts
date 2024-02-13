@@ -5,7 +5,6 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { ContactanosComponent } from './pages/contactanos/contactanos.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
-import { CuentaComponent } from './pages/cuenta/cuenta.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { ValidarDatosPersonalesComponent } from './pages/validar-datos-personales/validar-datos-personales.component';
 import { FormaPagoComponent } from './pages/forma-pago/forma-pago.component';
@@ -22,7 +21,6 @@ const routes: Routes = [
   {path: 'pages/carrito', component: CarritoComponent},
   {path: 'pages/login', component: LoginComponent},
   {path: 'pages/register', component: RegistrarseComponent},
-  {path: 'pages/cuenta-personal', component: CuentaComponent},
   {path: 'pages/clientes', component: ClientesComponent},
   {path: 'pages/fs2r24r/datos-personales', component: ValidarDatosPersonalesComponent},
   {path: 'pages/sdfgf3n2s5/forma-pago', component: FormaPagoComponent},

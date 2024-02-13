@@ -2,12 +2,12 @@
 
     <app-menu></app-menu>
 
-    <div class="contenedor-form">
+    <div class="contenedor-form" *ngIf="formulario">
 
         <div class="text">
-            <h3>¿Aún no tienes una cuenta? <br></h3>
+            <h3>Bienvenido<br></h3>
 
-            Se parte de nuestra familia, donde cientos de personas han conseguido una sonrisa
+            Inicia sesión para obtener todos los beneficios disponibles
         </div>
 
         <form action="" [formGroup]="loginForm" (ngSubmit)="login()">
@@ -25,7 +25,7 @@
                 <button type="submit">Aceptar</button>
 
                 <div class="cuenta-existente">
-                    ¿Aún no estás registrado? 
+                    ¿Aún no estás registrado?
                     <button class="btn-login" (click)="registrarse()">Registrarse</button>
                 </div>
 
@@ -34,6 +34,12 @@
                 </div>
             </div>
         </form>
+    </div>
+
+    <div class="contenedor-info-user" *ngIf="mostrarUsuario">
+
+        
+
     </div>
 
     <app-footer></app-footer>

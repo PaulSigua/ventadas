@@ -54,6 +54,7 @@ export class RegistrarseComponent implements OnInit{
         this.cue = new Cuenta();
         this.ngOnInit();
 
+        this.router.navigate([('/pages/inicio')]);
       })
     }
   }
