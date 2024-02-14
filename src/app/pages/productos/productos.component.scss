@@ -106,6 +106,16 @@
 
 
     .contenedor-busqueda {
+        .hay-resultados-if {
+            margin-top: 20px;
+            background-color: #ffcbcb;
+            border: 1px solid #ff0000;
+            text-align: center;
+            h4 {
+                color: #ff4343;
+            }
+        }
+
         .condicion-result {
             text-align: center;
             justify-content: center;
@@ -249,31 +259,7 @@
                 padding: 0;
             }
 
-            .productos {
-                font-size: 15px;
-                width: auto;
-                display: flex;
-
-                .contenedor-img {
-                    padding: 10px;
-                    padding-left: 0px;
-
-                    img {
-                        width: 175px;
-                        height: 75px;
-                    }
-                }
-            }
-
-            .producto-text .contenedor-btn {
-                display: grid;
-            }
         }
     }
 
-    .texto {
-        padding-top: 60px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
 }

@@ -1,0 +1,60 @@
+<div class="contenedor-main">
+
+    <app-menu></app-menu>
+
+    <div class="contenedor-form">
+
+        <div class="text">
+            <h3>¡Registrate! <br></h3>
+
+            Se parte de nuestra familia, donde cientos de personas han conseguido una sonrisa
+        </div>
+
+        <form action="">
+
+            <h2>Registrarse</h2>
+
+            <div class="info">
+                <label for="">Ingrese su nombre</label><br>
+                <input type="text" placeholder="nombre" #nombre><br>
+
+                <label for="">Ingrese su apellido</label><br>
+                <input type="text" placeholder="apellido" #apellido><br>
+
+                <label for="">Ingrese su correo electrónico</label><br>
+                <input type="text" placeholder="correo" #correo><br>
+
+                <label for="">Ingrese su cédula</label><br>
+                <input type="text" placeholder="cédula" #cedula><br>
+
+                <label for="">Ingrese su contraseña</label><br>
+                <input type="password" placeholder="contraseña nueva" #contrasenia><br>
+
+                <label for="">Confirme su contraseña</label><br>
+                <input type="password" placeholder="confirmar contraseña" #confirmarContrasenia><br>
+
+                <button (click)="registrarse(nombre, apellido, correo, cedula, contrasenia, confirmarContrasenia)">Aceptar</button>
+
+                <div class="cuenta-existente">
+                    ¿Ya tienes una cuenta? 
+                    <button class="btn-login" (click)="irAlogin()">Iniciar Sesión</button>
+                </div>
+
+                <div class="ocurrioUnError" *ngIf="ocurrioUnError">
+                    <h4>Ocurrio un error</h4>
+                </div>
+    
+                <div class="todoBien" *ngIf="todoBien">
+                    <h4>¡Su mensaje fue enviado de manera correcta!</h4>
+                </div>
+
+                <div class="ocurrioUnError-contrasenia" *ngIf="ocurrioUnErrorContrasenia">
+                    <h4>Las contraseñas no coinciden</h4>
+                </div>
+                
+            </div>
+        </form>
+    </div>
+
+    <app-footer></app-footer>
+</div>

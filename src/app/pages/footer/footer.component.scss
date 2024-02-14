@@ -20,7 +20,12 @@ footer {
 
             .nosotros {
                 a {
+                    text-decoration: none;
                     color: #a38eff;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
         }

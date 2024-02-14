@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { CuentaService } from 'src/app/services/services-cuenta/cuenta.service';
 
 @Component({
   selector: 'app-menu',
@@ -21,11 +21,12 @@ export class MenuComponent implements OnInit {
   showSidenav = false;
   paginas = true;
 
-  nombreUsuario: string = '';
+  usuarioLogueado: any;
 
-  constructor(private usuarioService: UsuarioService,
+  constructor(
     private router: Router,
-    private breakpointObserver: BreakpointObserver) {
+    private breakpointObserver: BreakpointObserver,
+    private cuentaService: CuentaService) {
     this.breakpointObserver.observe([
       Breakpoints.XSmall,
       Breakpoints.Small,
@@ -42,8 +43,11 @@ export class MenuComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-    // Obtén el nombre de usuario del servicio UsuarioService
-    this.nombreUsuario = this.usuarioService.nombreUsuario;
+    this.cuentaService.obtenerUsuarioLogueado().subscribe(usuario => {
+      this.usuarioLogueado = usuario;
+    }, error => {
+      console.error("No se pudo obtener el usuario logueado", error);
+    });
   }
 
   irAlCarrito() {
@@ -51,7 +55,7 @@ export class MenuComponent implements OnInit {
   }
 
   irACreacionCuenta() {
-    this.router.navigate([('pages/login')]);
+    this.router.navigate([('/pages/cuenta')]);
   }
 
   @HostListener('window:scroll', [])

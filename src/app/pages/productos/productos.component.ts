@@ -1,7 +1,8 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CargarProducto, Carrito, DetalleCarrito, Producto } from 'src/app/domain/cliente';
-import { ProductoService } from 'src/app/services-producto/producto.service';
+import { CarritoService } from 'src/app/services/services-carrito/carrito.service';
+import { ProductoService } from 'src/app/services/services-producto/producto.service';
 
 @Component({
   selector: 'app-productos',
@@ -19,20 +20,24 @@ export class ProductosComponent implements OnInit {
   detalles: DetalleCarrito[] = [];
   productosBusqueda: Producto[] = [];
   producto: Producto [] = [];
+  carrito: any;
 
   isScrolled = false;
   seccion: string = '';
   openRopa: boolean = false;
   mostrarResultados: boolean = false;
   mostrarProductos: boolean = true;
+  hayResultados: boolean = false;
 
   categoriaSeleccionada: string | undefined = 'todos';
 
   constructor(private productoService: ProductoService,
+    private carritoSer: CarritoService,
     private router: Router) {
     window.scrollTo({
       top: 0
     })
+    
   }
 
   ngOnInit(): void {
@@ -48,6 +53,7 @@ export class ProductosComponent implements OnInit {
   }
 
   mostrarCategoria(categoria: string) {
+    this.hayResultados = false;
     this.mostrarResultados = false;
     this.mostrarProductos = true;
     if (categoria == 'ropa') {
@@ -73,9 +79,9 @@ export class ProductosComponent implements OnInit {
 
   addAlCarrito(pro: Producto) {
     const cargarDet = {
-      carrito: 1,
-      producto: pro.codigo,//necesito tu ayuda aqui
-      cantidad: 1//necesito tu ayuda aqui
+      carrito: this.carrito.codigo,
+      producto: pro.codigo,
+      cantidad: 1
     }
 
     this.cargar = cargarDet;
@@ -94,14 +100,16 @@ export class ProductosComponent implements OnInit {
     console.log('Antes de buscar', this.mostrarResultados, this.mostrarProductos);
     this.productoService.buscarProductos(nombre.value).subscribe({
       next: (productos) => {
+        this.hayResultados = false;
         console.log(productos);
-        this.productosBusqueda = productos; // Asegurarse de que esto sea un arreglo.
+        this.productosBusqueda = productos;
         console.log('Después de buscar', this.mostrarResultados, this.mostrarProductos);
         this.ngOnInit();
       },
       error: (error) => {
-        alert('No se encontraron resultados');
+        this.hayResultados = true;
         console.error('Error al buscar productos', error);
+        this.mostrarResultados = false;
       }
     });
     this.ngOnInit();

@@ -8,30 +8,33 @@
         <div class="contenedor-info">
             <div class="contenedor-form">
                 <form action="">
-                    <td><label for="">Nombre de la tarjeta</label></td>
-                    <td><input type="text" name="nombreTarjeta" id="nombreTarjeta" placeholder="Nombre "></td>
+                    <td><label for="">Nombre de la targeta</label></td>
+                    <td><input type="text" name="nombreTarjeta" id="nombreTarjeta" #nombreTarjeta placeholder="Nombre "></td>
 
-                    <td><label for="">Número de la tarjeta</label></td>
-                    <td><input type="number" name="numeroTarjeta" id="numeroTarjeta" placeholder="1234 5678 9012 3456"></td>
+                    <td><label for="">Número de la targeta</label></td>
+                    <td><input type="number" name="numeroTarjeta" id="numeroTarjeta" #numeroTarjeta placeholder="1234 5678 9012 3456"></td>
 
                     <div class="contenedor-secundario-form">
                         <div class="form-grupo">
                             <label for="">Fecha de vencimiento</label>
-                            <input type="text" name="fechaVencimiento" id="fechaVencimiento" placeholder="MM/AA">
+                            <input type="text" name="fechaVencimiento" id="fechaVencimiento" #fechaVencimiento placeholder="MM/AA">
                         </div>
 
                         <div class="form-grupo">
                             <label for="">Código de seguridad</label>
-                            <input type="number" name="codigoSeguridad" id="codigoSeguridad" placeholder="123">
+                            <input type="number" name="codigoSeguridad" id="codigoSeguridad" #codigoSeguridad placeholder="123">
                         </div>
                     </div>
                     
-                    <button type="button" (click)="continuar()">Continuar</button>
                 </form>
             </div>
             <div class="contenedor-datos">
-
+                JAJAJA
             </div>
+        </div>
+        
+        <div class="contenedor-btn">
+            <button (click)="continuar()">Continuar</button>
         </div>
     </div>
 

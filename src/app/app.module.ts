@@ -9,11 +9,11 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { ContactanosComponent } from './pages/contactanos/contactanos.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
-import { CuentaComponent } from './pages/cuenta/cuenta.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientesComponent } from './pages/clientes/clientes.component';
-import { FormsModule, NgModel, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
@@ -27,6 +27,8 @@ import { MatInputModule } from '@angular/material/input';
 import { ValidarDatosPersonalesComponent } from './pages/validar-datos-personales/validar-datos-personales.component';
 import { FormaPagoComponent } from './pages/forma-pago/forma-pago.component';
 import { ProductoDetallesComponent } from './pages/producto-detalles/producto-detalles.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
 
 @NgModule({
   declarations: [
@@ -37,12 +39,14 @@ import { ProductoDetallesComponent } from './pages/producto-detalles/producto-de
     NosotrosComponent,
     ContactanosComponent,
     CarritoComponent,
-    CuentaComponent,
     FooterComponent,
     ClientesComponent,
     ValidarDatosPersonalesComponent,
     FormaPagoComponent,
-    ProductoDetallesComponent
+    ProductoDetallesComponent,
+    LoginComponent,
+    RegistrarseComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,7 @@ import { ProductoDetallesComponent } from './pages/producto-detalles/producto-de
     MatMenuModule,
     MatInputModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     AppRoutingModule //Para la conexion con Eclipse primero importamos esto
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -44,7 +44,7 @@ export class MensajeUsuario {
 export class Carrito {
     codigo?: number;
     detalles?: DetalleCarrito;
-    detalle?: number;
+    cuenta?: Usuario;
 }
 
 export class DetalleCarrito {
@@ -65,19 +65,23 @@ export class CargarProducto {
     cantidad?: number;
 }
 
+export class CargarCuentaCarrito {
+    cuenta?: number;
+    carrito?: Carrito;
+}
 
-/*Mi parte*/
-export class User{
-    userid?: number;
-    nombre?: string;
-    apellido?: string;
+export class Usuario {
+    codigo?: any;
+    nombre?: any;
+    apellido?: any;
+    correo?: any;
     cedula?: string;
-    correo?: string;
-    password?: string;
-    confirmPassword?: string; 
+    contrasenia?: any;
+    accedio?: boolean;
 }
 
 export class Credenciales {
+    codigo: any;
     correo?: string;
-    password?: string
+    contrasenia?: string;
 }

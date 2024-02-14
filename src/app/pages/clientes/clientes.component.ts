@@ -29,7 +29,7 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit(): void {
     this.clientes = this.clienteService.getClientes();
-    this.facturas = this.clienteService.getFacturas();
+    //this.facturas = this.clienteService.getFacturas();
   }
 
   cancelar() {
@@ -111,22 +111,6 @@ export class ClientesComponent implements OnInit {
       this.det = new Detalle();
     }
   }
-
-  /*guardarDetalle() {
-    if (this.det.nombre == null || this.det.cantidad == null || this.det.precio == null) {
-      alert("Debe llenar todos los campos");
-    } else {
-      this.clienteService.saveDetalle(this.det).subscribe(data => {
-        console.log(data);
-        if (data.codigo == 1) {
-          this.det = new Detalle();
-          this.ngOnInit();
-        } else {
-          alert("Error al insertar" + data.message)
-        }
-      });
-    }
-  }*/
 
   calcularTotal(factura: Factura): number {
     if (factura.detalles) {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DetalleCarrito, Producto } from 'src/app/domain/cliente';
-import { CarritoService } from 'src/app/services-carrito/carrito.service';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { CarritoService } from 'src/app/services/services-carrito/carrito.service';
+import { CuentaService } from 'src/app/services/services-cuenta/cuenta.service';
 
 @Component({
   selector: 'app-validar-datos-personales',
@@ -14,16 +14,17 @@ export class ValidarDatosPersonalesComponent implements OnInit {
   productos: any;
   det: DetalleCarrito = new DetalleCarrito();
   regresar: boolean = true;
+  total: number = 0;
 
   cedula: string = '';
   nombre: string = '';
   correo: string = '';
   contrasenia: string = '';
 
-  usuarioLogueado: any = {}; // Objeto para almacenar los datos del usuario logueado
+  usuarioLogueado: any;
 
-
-  constructor(private usuarioService: UsuarioService,private carritoService: CarritoService,
+  constructor(private carritoService: CarritoService,
+    private cuentaService: CuentaService,
     private router: Router) {
     window.scrollTo({
       top: 0
@@ -32,40 +33,40 @@ export class ValidarDatosPersonalesComponent implements OnInit {
 
   ngOnInit(): void {
     this.productos = this.carritoService.getDetallesCarrito();
-    this.usuarioLogueado = this.usuarioService.getUsuarioLogeado();
-    console.log("jkdsbvhjdsbvkds "+ this.usuarioLogueado)
+    this.usuarioLogueado = this.cuentaService.getUsuarioLogeado();
+    this.cuentaService.obtenerUsuarioLogueado().subscribe(usuario => {
+      this.usuarioLogueado = usuario;
+      if(this.usuarioLogueado = usuario){
+      }
+    })
+
+    this.getTotalPago();
   }
 
-  confirmAction() {
-    const confirmation = confirm("¿Estás seguro de que quieres realizar esta acción?");
-
-    if (confirmation) {
-      console.log("Acción confirmada.");
-      this.router.navigate([('/pages/carrito')]);
-    } else {
-      console.log("Acción cancelada.");
-    }
+  getTotalPago(): void {
+    this.carritoService.getTotalPago().subscribe({
+      next: (response) => {
+        this.total = response.total;
+        console.log(this.total)
+      },
+      error: (e) => console.error(e)
+    });
   }
+  
 
-  calcularValoraPagar() {
-    
-  }
-
-  continuar() {
+  continuar(cedula: HTMLInputElement, nombre: HTMLInputElement, correo: HTMLInputElement, contrasenia: HTMLInputElement) {
     // Validar los datos ingresados con los datos del usuario logueado
+
     if (this.usuarioLogueado) {
-      console.log(this.usuarioLogueado.cedula+this.usuarioLogueado.nombre+this.usuarioLogueado.correo+this.usuarioLogueado.password)
-      if (
-        this.cedula === this.usuarioLogueado.cedula &&
-        this.nombre === this.usuarioLogueado.nombre &&
-        this.correo === this.usuarioLogueado.correo &&
-        this.contrasenia === this.usuarioLogueado.password
-      ) {
-        // Los datos coinciden, puedes continuar con la acción deseada
-        this.router.navigate(['pages/sdfgf3n2s5/forma-pago']);
+      if(!cedula.value || !nombre.value || !correo.value || !contrasenia.value){
+        alert("Debe rellenar todos los campos");
       } else {
-        // Los datos no coinciden, puedes mostrar un mensaje de error o realizar otra acción
-        alert('Los datos ingresados no coinciden con los datos del usuario logueado.');
+        if (cedula.value == this.usuarioLogueado.cedula && nombre.value == this.usuarioLogueado.nombre 
+          && correo.value == this.usuarioLogueado.correo && contrasenia.value == this.usuarioLogueado.contrasenia) {
+            this.router.navigate([('/pages/forma-pago')])
+        } else {
+          alert("Sus datos no coinciden")
+        }
       }
     }
   }

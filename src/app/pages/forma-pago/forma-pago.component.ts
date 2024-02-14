@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
 })
 export class FormaPagoComponent {
 
-  constructor(private router: Router){}
+  constructor (private router: Router) {
+    window.scrollTo({
+      top: 0
+    })
+  }
 
   continuar() {
     const nombreTarjeta = (document.getElementById('nombreTarjeta') as HTMLInputElement).value;
@@ -41,7 +45,7 @@ export class FormaPagoComponent {
     localStorage.setItem('codigoSeguridad', codigoSeguridad);
   
     // Continuar con la acción deseada si los campos pasan la validación
-    this.router.navigate(['/pages/comprafinalizada']);
+    this.router.navigate(['/pages/agradecimiento']);
   }
 
   validarNumeroTarjeta(numeroTarjeta: string): boolean {
@@ -72,7 +76,7 @@ export class FormaPagoComponent {
   
     return sum % 10 === 0;
   }
-  
+
   validarFechaVencimiento(fechaVencimiento: string): boolean {
     // La fecha de vencimiento debe tener el formato MM/AA
     const parts = fechaVencimiento.split('/');
@@ -91,6 +95,6 @@ export class FormaPagoComponent {
   validarCodigoSeguridad(codigoSeguridad: string): boolean {
     // El código de seguridad debe tener exactamente 3 dígitos
     return /^[0-9]{3}$/.test(codigoSeguridad);
-  }
-  
+  }
+
 }

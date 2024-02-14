@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
-import { ProductoService } from 'src/app/services-producto/producto.service';
+import { ProductoService } from 'src/app/services/services-producto/producto.service';
 
 @Component({
   selector: 'app-inicio',

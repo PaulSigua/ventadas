@@ -1,3 +1,3 @@
 export const environment = {
-    WA_PATH: 'http://localhost:8080/login/rs' //Este es el segundo paso
+    WA_PATH: 'http://localhost:8080/demo64/rs' //Este es el segundo paso
 }

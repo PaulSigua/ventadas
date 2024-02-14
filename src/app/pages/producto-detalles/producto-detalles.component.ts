@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CargarProducto, DetalleCarrito, Producto } from 'src/app/domain/cliente';
-import { ProductoService } from 'src/app/services-producto/producto.service';
+import { ProductoService } from 'src/app/services/services-producto/producto.service';
 
 @Component({
   selector: 'app-producto-detalles',
@@ -57,8 +57,8 @@ export class ProductoDetallesComponent implements OnInit{
   addAlCarrito(pro: Producto) {
     const cargarDet = {
       carrito: 1,
-      producto: pro.codigo,//necesito tu ayuda aqui
-      cantidad: 1//necesito tu ayuda aqui
+      producto: pro.codigo,
+      cantidad: this.count
     }
 
     this.cargar = cargarDet;
