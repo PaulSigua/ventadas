@@ -13,15 +13,15 @@
         <h1>Mi Carrito</h1>
         <div class="producto" *ngFor="let carrito of carritos | async">
             <div class="nombre-producto">
-                <h2>{{carrito.nombreProducto}}</h2>
+                <h2>{{carrito.producto.nombre}}</h2>
             </div>
             <div class="contenedor-info-producto">
-                <img src="{{carrito.imagenProducto}}" alt="">
+                <img src="{{carrito.producto.imagen}}" alt="">
                 <div class="producto-descripcion">
                     <div class="descripcion">
                         <b>Descripcion:</b>
                         <p>
-                            {{carrito?.detalle}}
+                            {{carrito.producto.caracteristicas}}
                         </p>
                     </div>
 
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="btn-eliminar-prodcuto">
-                <button (click)="eliminarProducto(carrito.codigo)">Eliminar producto</button>
+                <button (click)="eliminarProducto(carrito.producto.codigo)">Eliminar producto</button>
             </div>
         </div>
     </div>
