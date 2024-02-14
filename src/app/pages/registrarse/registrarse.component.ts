@@ -49,10 +49,17 @@ export class RegistrarseComponent implements OnInit{
 
       this.cue = cuenta;
       this.cuentaService.saveUsuarios(this.cue).subscribe(data => {
+        console.log(this.cue);
         console.log(data);
         this.cue = new Usuario();
         this.ngOnInit();
 
+        nombre.value = '';
+        apellido.value = '';
+        cedula.value = '';
+        correo.value = '';
+        contrasenia.value = '';
+        confirmarContrasenia.value = '';
       })
     }
   }
@@ -61,21 +68,4 @@ export class RegistrarseComponent implements OnInit{
     this.router.navigate([('/pages/cuenta')])
   }
 
-  /*crearCarritoAlIniciar(usuario: number): void {
-    this.carritoSer.crearCarrito(usuario).subscribe({
-      next: (carrito) => {
-        const car = {
-          codigo: carrito,
-          cuenta: this.usuarioLogueado.codigo
-        }
-
-        console.log(car);
-        this.carrito = car;
-        console.log('Carrito creado con éxito', carrito);
-      },
-      error: (error) => {
-        console.error('Error al crear el carrito', error);
-      }
-    });
-  }*/
 }

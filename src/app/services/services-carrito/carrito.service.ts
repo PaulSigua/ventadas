@@ -27,8 +27,4 @@ export class CarritoService {
     return this.http.get<any>(url);
   }
 
-  crearCarrito(usuario: number): Observable<Carrito>{
-    let url = environment.WA_PATH + '/carrito';
-    return this.http.post<Carrito>(url, {});
-  }
 }
