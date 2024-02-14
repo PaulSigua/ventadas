@@ -11,6 +11,7 @@ import { FormaPagoComponent } from './pages/forma-pago/forma-pago.component';
 import { ProductoDetallesComponent } from './pages/producto-detalles/producto-detalles.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
+import { AgradecimientoComponent } from './pages/agradecimiento/agradecimiento.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'pages/inicio', pathMatch: 'full'},
@@ -19,12 +20,13 @@ const routes: Routes = [
   {path: 'pages/nosotros', component: NosotrosComponent},
   {path: 'pages/contactanos', component: ContactanosComponent},
   {path: 'pages/carrito', component: CarritoComponent},
-  {path: 'pages/login', component: LoginComponent},
+  {path: 'pages/cuenta', component: LoginComponent},
   {path: 'pages/register', component: RegistrarseComponent},
   {path: 'pages/clientes', component: ClientesComponent},
-  {path: 'pages/fs2r24r/datos-personales', component: ValidarDatosPersonalesComponent},
-  {path: 'pages/sdfgf3n2s5/forma-pago', component: FormaPagoComponent},
-  {path: 'pages/producto/:id', component: ProductoDetallesComponent}
+  {path: 'pages/datos-personales', component: ValidarDatosPersonalesComponent},
+  {path: 'pages/forma-pago', component: FormaPagoComponent},
+  {path: 'pages/producto/:id', component: ProductoDetallesComponent},
+  {path: 'pages/agradecimiento', component: AgradecimientoComponent}
 ];
 
 @NgModule({

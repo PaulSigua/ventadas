@@ -2,19 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, empty, finalize, isEmpty, of } from 'rxjs';
 import { CarritoService } from 'src/app/services/services-carrito/carrito.service';
+import { CuentaService } from 'src/app/services/services-cuenta/cuenta.service';
 
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.scss']
 })
-export class CarritoComponent implements OnInit{
+export class CarritoComponent implements OnInit {
 
   carritos?: any;
   registraProductos: boolean = false;
+  isLoggedIn: boolean = false;
+  usuarioLogueado: any;
 
   constructor(private router: Router,
-    private carritoService: CarritoService){
+    private carritoService: CarritoService,
+    private cuentaService: CuentaService) {
     window.scrollTo({
       top: 0
     })
@@ -22,8 +26,8 @@ export class CarritoComponent implements OnInit{
 
   ngOnInit(): void {
     this.carritos = this.carritoService.getDetallesCarrito();
-    this.calcularSumaTotal(this.carritos.total);
-    if(this.carritos == isEmpty){
+    this.isLoggedIn = this.cuentaService.isLoggedIn;
+    if (this.carritos == isEmpty) {
       this.registraProductos == true
     } else {
       this.registraProductos = false
@@ -31,7 +35,7 @@ export class CarritoComponent implements OnInit{
 
   }
 
-  irAproductos(){
+  irAproductos() {
     this.router.navigate([('/pages/productos')]);
   }
 
@@ -53,12 +57,21 @@ export class CarritoComponent implements OnInit{
       top: 300
     })
   }
-  
-  comprar(){
-    this.router.navigate([('pages/fs2r24r/datos-personales')]);
+
+  comprar() {
+    this.cuentaService.obtenerUsuarioLogueado().subscribe(usuario => {
+      if (usuario) {
+        this.usuarioLogueado = usuario;
+        this.router.navigate([('/pages/datos-personales')])
+      }
+
+    }, error => {
+      // Manejar errores, por ejemplo, problemas de conexión
+
+      alert("Usted no se encuentra logueado");
+      this.router.navigate([('/pages/login')])
+    });
+
   }
 
-  calcularSumaTotal(total: number){
-    
-  }
 }

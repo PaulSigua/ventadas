@@ -22,7 +22,7 @@
                     <a mat-list-item routerLink="/pages/nosotros">Nosotros</a>
                     <a mat-list-item routerLink="/pages/contactanos">Contactanos</a>
                     <a mat-list-item routerLink="/pages/carrito">Carrito</a>
-                    <a mat-list-item routerLink="/pages/login">Resgistrarse</a>
+                    <a mat-list-item routerLink="/pages/cuenta">Cuenta</a>
 
                     <div class="redes-sociales">
                         <div class="redes">
@@ -42,6 +42,11 @@
                                 <i class="icon fab fa-twitter"></i>
                             </button>
                         </div>
+                    </div>
+
+                    
+                    <div class="usuario-logueado" *ngIf="usuarioLogueado">
+                        <h4>{{usuarioLogueado.nombre}} {{usuarioLogueado.apellido}}</h4>
                     </div>
 
                     <!-- Puedes agregar más enlaces según tus necesidades -->
@@ -86,6 +91,9 @@
                 <button class="btn-cuenta" (click)="irACreacionCuenta()">
                     <i class="material-icons">account_circle</i>
                 </button>
+            </div>
+            <div class="usuario-logueado" *ngIf="usuarioLogueado">
+                <h4>{{usuarioLogueado.nombre}} {{usuarioLogueado.apellido}}</h4>
             </div>
         </div>
     </header>

@@ -12,7 +12,8 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientesComponent } from './pages/clientes/clientes.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
 
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';

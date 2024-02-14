@@ -2,12 +2,12 @@
 
     <app-menu></app-menu>
 
-    <div class="contenedor-form" *ngIf="formulario">
+    <div class="contenedor-form" *ngIf="mostrarFormulario">
 
         <div class="text">
-            <h3>Bienvenido<br></h3>
+            <h3>¿Aún no tienes una cuenta? <br></h3>
 
-            Inicia sesión para obtener todos los beneficios disponibles
+            Se parte de nuestra familia, donde cientos de personas han conseguido una sonrisa
         </div>
 
         <form action="" [formGroup]="loginForm" (ngSubmit)="login()">
@@ -36,10 +36,31 @@
         </form>
     </div>
 
-    <div class="contenedor-info-user" *ngIf="mostrarUsuario">
+    <div class="contenedor-info-user" *ngIf="mostrarinfo">
+        <div class="contenedor-datos">
+            <ul >
+                <div>Nombre: {{usuarioLogueado.nombre}} {{usuarioLogueado.apellido}}</div>
+                <div>Correo: {{usuarioLogueado.correo}}</div>
+                <div>Cedula: {{usuarioLogueado.cedula}}</div>
+                <div></div>
+            </ul>
+        </div>
 
-        
+        <div class="contenedor-texto">
 
+        </div>
+
+        <div class="contenedor-img">
+            <div class="contenedor">
+                <img src="https://i.pinimg.com/564x/6c/bb/9b/6cbb9bf84a9565337be26272e3cf08e9.jpg" alt="">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, eveniet? Eos pariatur rerum asperiores soluta? Cum eligendi officia alias totam voluptatem earum ut ipsam! Repellendus minima soluta officiis labore iste?</p>
+            </div>
+
+            <div class="contenedor">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto laboriosam fugit, commodi, asperiores illo ipsam voluptatum debitis quidem illum nihil quo provident nemo eaque numquam earum facilis nesciunt eos aliquid.</p>
+                <img src="https://i.pinimg.com/564x/90/fe/3b/90fe3b57b4a942c98c383eab189eb751.jpg" alt="">
+            </div>
+        </div>
     </div>
 
     <app-footer></app-footer>

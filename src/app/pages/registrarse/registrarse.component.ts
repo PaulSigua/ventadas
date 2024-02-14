@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Cuenta } from 'src/app/domain/cliente';
+import { Usuario } from 'src/app/domain/cliente';
+import { CarritoService } from 'src/app/services/services-carrito/carrito.service';
 import { CuentaService } from 'src/app/services/services-cuenta/cuenta.service';
 
 @Component({
@@ -13,10 +14,11 @@ export class RegistrarseComponent implements OnInit{
   ocurrioUnError: boolean = false;
   ocurrioUnErrorContrasenia: boolean = false;
   todoBien: boolean = false;
-  cue: Cuenta = new Cuenta();
+  cue: Usuario = new Usuario();
 
   constructor(private cuentaService: CuentaService,
-    private router: Router){
+    private router: Router,
+    private carritoSer: CarritoService){
     window.scrollTo({
       top: 0
     })
@@ -26,15 +28,11 @@ export class RegistrarseComponent implements OnInit{
     
   }
 
-  registrarse(nombre: HTMLInputElement, apellido: HTMLInputElement, correo: HTMLInputElement, contrasenia: HTMLInputElement, confirmarContrasenia: HTMLInputElement){
+  registrarse(nombre: HTMLInputElement, apellido: HTMLInputElement, correo: HTMLInputElement, cedula: HTMLInputElement, contrasenia: HTMLInputElement, confirmarContrasenia: HTMLInputElement){
 
-    if(!nombre.value || !apellido.value || !correo.value || !contrasenia.value || !confirmarContrasenia.value) {
+    if(!nombre.value || !apellido.value || !correo.value || !cedula.value || !contrasenia.value || !confirmarContrasenia.value) {
       this.ocurrioUnError = true;
       this.ocurrioUnErrorContrasenia = false;
-      this.todoBien = false;
-    } else if (contrasenia.value != confirmarContrasenia.value) {
-      this.ocurrioUnError = false;
-      this.ocurrioUnErrorContrasenia = true;
       this.todoBien = false;
     } else {
       this.ocurrioUnError = false;
@@ -44,22 +42,40 @@ export class RegistrarseComponent implements OnInit{
       const cuenta = {
         nombre: nombre.value,
         apellido: apellido.value,
+        cedula: cedula.value,
         correo: correo.value,
         contrasenia: contrasenia.value
       }
 
       this.cue = cuenta;
-      this.cuentaService.saveCuentas(this.cue).subscribe(data => {
+      this.cuentaService.saveUsuarios(this.cue).subscribe(data => {
         console.log(data);
-        this.cue = new Cuenta();
+        this.cue = new Usuario();
         this.ngOnInit();
 
-        this.router.navigate([('/pages/inicio')]);
       })
     }
   }
 
   irAlogin(){
-    this.router.navigate([('/pages/login')])
+    this.router.navigate([('/pages/cuenta')])
   }
+
+  /*crearCarritoAlIniciar(usuario: number): void {
+    this.carritoSer.crearCarrito(usuario).subscribe({
+      next: (carrito) => {
+        const car = {
+          codigo: carrito,
+          cuenta: this.usuarioLogueado.codigo
+        }
+
+        console.log(car);
+        this.carrito = car;
+        console.log('Carrito creado con éxito', carrito);
+      },
+      error: (error) => {
+        console.error('Error al crear el carrito', error);
+      }
+    });
+  }*/
 }

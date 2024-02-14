@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CargarProducto, Carrito, DetalleCarrito, Producto } from 'src/app/domain/cliente';
+import { CarritoService } from 'src/app/services/services-carrito/carrito.service';
 import { ProductoService } from 'src/app/services/services-producto/producto.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class ProductosComponent implements OnInit {
   detalles: DetalleCarrito[] = [];
   productosBusqueda: Producto[] = [];
   producto: Producto [] = [];
+  carrito: any;
 
   isScrolled = false;
   seccion: string = '';
@@ -30,10 +32,12 @@ export class ProductosComponent implements OnInit {
   categoriaSeleccionada: string | undefined = 'todos';
 
   constructor(private productoService: ProductoService,
+    private carritoSer: CarritoService,
     private router: Router) {
     window.scrollTo({
       top: 0
     })
+    
   }
 
   ngOnInit(): void {
@@ -75,7 +79,7 @@ export class ProductosComponent implements OnInit {
 
   addAlCarrito(pro: Producto) {
     const cargarDet = {
-      carrito: 1,
+      carrito: this.carrito.codigo,
       producto: pro.codigo,
       cantidad: 1
     }

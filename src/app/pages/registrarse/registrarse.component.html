@@ -24,13 +24,16 @@
                 <label for="">Ingrese su correo electrónico</label><br>
                 <input type="text" placeholder="correo" #correo><br>
 
+                <label for="">Ingrese su cédula</label><br>
+                <input type="text" placeholder="cédula" #cedula><br>
+
                 <label for="">Ingrese su contraseña</label><br>
                 <input type="password" placeholder="contraseña nueva" #contrasenia><br>
 
                 <label for="">Confirme su contraseña</label><br>
                 <input type="password" placeholder="confirmar contraseña" #confirmarContrasenia><br>
 
-                <button (click)="registrarse(nombre, apellido, correo, contrasenia, confirmarContrasenia)">Aceptar</button>
+                <button (click)="registrarse(nombre, apellido, correo, cedula, contrasenia, confirmarContrasenia)">Aceptar</button>
 
                 <div class="cuenta-existente">
                     ¿Ya tienes una cuenta? 

@@ -20,23 +20,25 @@
                     <td><label for="">Ingrese la contraseña</label></td>
                     <td><input type="password" name="password" id="" #contrasenia placeholder="contraseña"></td>
 
+
+                    <div class="contenedor-datos">
+                        <div class="contenedor-productos" *ngFor="let det of productos | async">
+                            <div><b>{{det.nombreProducto}}</b></div>
+                            <div>Cantidad: {{det.cantidad}}</div>
+                            <div>Subtotal: ${{det.subtotal}}</div>
+                            <div>Total: ${{det.total}}</div>
+                        </div>
+                    </div>
+                    <div class="pago-final"><b>
+                            <h3>Valor a pagar: ${{total}}</h3>
+                        </b></div>
+
+                    <div class="continuar-pago">
+                        <button (click)="continuar(cedula, nombre, correo, contrasenia)">Continuar</button>
+                    </div>
                 </form>
             </div>
-            <div class="contenedor-datos">
-                <div class="contenedor-productos" *ngFor="let det of productos | async">
-                    <div><b>{{det.nombreProducto}}</b></div>
-                    <div>Cantidad: {{det.cantidad}}</div>
-                    <div>Subtotal: ${{det.subtotal}}</div>
-                    <div>Total: ${{det.total}}</div>
-                </div>
-            </div>
-        </div>
-        <div class="pago-final"><b><h3>Valor a pagar: ${{total}}</h3></b></div>
-        
-        <div class="continuar-pago">
-            <button (click)="continuar()">Continuar</button>
         </div>
     </div>
-</div>
 
-<app-footer></app-footer>
+    <app-footer></app-footer>
