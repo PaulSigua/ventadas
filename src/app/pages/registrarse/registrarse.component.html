@@ -25,7 +25,7 @@
                 <input type="text" placeholder="correo" #correo><br>
 
                 <label for="">Ingrese su cédula</label><br>
-                <input type="text" placeholder="cédula" #cedula><br>
+                <input type="number" placeholder="cédula" #cedula><br>
 
                 <label for="">Ingrese su contraseña</label><br>
                 <input type="password" placeholder="contraseña nueva" #contrasenia><br>
@@ -45,7 +45,7 @@
                 </div>
     
                 <div class="todoBien" *ngIf="todoBien">
-                    <h4>¡Su mensaje fue enviado de manera correcta!</h4>
+                    <h4>¡Su cuenta se creo de manera correcta, INICIE SESIÓN!</h4>
                 </div>
 
                 <div class="ocurrioUnError-contrasenia" *ngIf="ocurrioUnErrorContrasenia">

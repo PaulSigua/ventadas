@@ -1,19 +1,25 @@
+// Importaciones de librerias necesarias para el funcionamiento del componente
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+//Decorador que define el componente
 @Component({
   selector: 'app-forma-pago',
   templateUrl: './forma-pago.component.html',
   styleUrl: './forma-pago.component.scss'
 })
+
+// Exportacion de la clase
 export class FormaPagoComponent {
 
+  // Constructor del componente/clase
   constructor (private router: Router) {
     window.scrollTo({
       top: 0
     })
   }
 
+  //Metodo continuar que valida los datos ingresados y permite finalizar la compra
   continuar() {
     const nombreTarjeta = (document.getElementById('nombreTarjeta') as HTMLInputElement).value;
     const numeroTarjeta = (document.getElementById('numeroTarjeta') as HTMLInputElement).value;
@@ -46,6 +52,9 @@ export class FormaPagoComponent {
   
     // Continuar con la acción deseada si los campos pasan la validación
     this.router.navigate(['/pages/agradecimiento']);
+
+    
+
   }
 
   validarNumeroTarjeta(numeroTarjeta: string): boolean {
@@ -77,6 +86,7 @@ export class FormaPagoComponent {
     return sum % 10 === 0;
   }
 
+  //Metodo para validar la fecha de nacimiento
   validarFechaVencimiento(fechaVencimiento: string): boolean {
     // La fecha de vencimiento debe tener el formato MM/AA
     const parts = fechaVencimiento.split('/');
@@ -92,6 +102,7 @@ export class FormaPagoComponent {
     return mes >= 1 && mes <= 12 && año >= añoActual;
   }
   
+  //Validacion del codigo de seguridad
   validarCodigoSeguridad(codigoSeguridad: string): boolean {
     // El código de seguridad debe tener exactamente 3 dígitos
     return /^[0-9]{3}$/.test(codigoSeguridad);

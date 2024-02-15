@@ -1,3 +1,5 @@
+// En este archivo se exportaron clases que son necesarias para el manejo de datos
+// Cada clase cuenta con sus respectivas variables y su tipo.
 export class Cliente {
     codigo?: number;
     dni?: string;
@@ -63,11 +65,6 @@ export class CargarProducto {
     cantidad?: number;
 }
 
-export class CargarCuentaCarrito {
-    cuenta?: number;
-    carrito?: Carrito;
-}
-
 export class Usuario {
     codigo?: any;
     nombre?: any;
@@ -76,6 +73,7 @@ export class Usuario {
     cedula?: string;
     contrasenia?: any;
     accedio?: boolean;
+    carrito?: Carrito;
 }
 
 export class Credenciales {

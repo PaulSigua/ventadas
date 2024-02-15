@@ -1,3 +1,4 @@
+//Estilo CSS del componente
 .contenedor-form {
     text-align: center;
     padding: 40px;
@@ -22,6 +23,7 @@
 
         .info {
             padding: 20px;
+
             input {
                 width: 400px;
                 height: 25px;
@@ -73,13 +75,13 @@
                 }
             }
 
-            .cuenta-existente{
+            .cuenta-existente {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 text-align: center;
 
-                .btn-login{
+                .btn-login {
                     width: auto;
                     height: auto;
                     background-color: #fff;
@@ -94,7 +96,7 @@
                 text-align: center;
                 justify-content: center;
                 align-items: center;
-    
+
                 h4 {
                     background-color: #ffcbcb;
                     border: 1px solid #ff0000;
@@ -104,13 +106,13 @@
                     width: 350px;
                 }
             }
-    
+
             .todoBien {
                 display: flex;
                 text-align: center;
                 justify-content: center;
                 align-items: center;
-    
+
                 h4 {
                     background-color: #dbf1ff;
                     border: 1px solid #5fc2ff;
@@ -135,6 +137,7 @@
         padding-top: 30px;
         margin: 0;
     }
+
     .contenedor-main .contenedor-form form .info input {
         width: 250px;
     }
@@ -145,11 +148,31 @@
     flex-direction: column;
     align-items: center;
     margin: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
 }
 
 .contenedor-datos {
     text-align: center;
     margin-bottom: 20px;
+
+    .bnt-logout {
+        button{
+            background-color: #6851a2;
+        margin: 20px;
+        border: 0px;
+        color: #ffffff;
+        cursor: pointer;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: 5px;
+
+        &:hover {
+            background-color: #fff;
+            color: #6851a2;
+        }
+        }
+    }
 }
 
 .contenedor-img {
@@ -159,22 +182,22 @@
 }
 
 .contenedor {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.contenedor {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: auto;
     height: auto;
     border-radius: 8px;
-    img{
+    background-color: #ffffff;
+
+    img {
         width: 300px;
         height: auto;
+    }
+
+    p {
+        margin: 20px;
     }
 }
 
@@ -193,8 +216,8 @@
         align-items: center;
         text-align: center;
     }
-    
-    .contenedor-img{
+
+    .contenedor-img {
         display: grid;
         margin: 0;
         padding: 0;
@@ -207,8 +230,8 @@
             align-items: center;
             text-align: center;
             width: auto;
-            
-            img{
+
+            img {
                 width: 100%;
             }
         }

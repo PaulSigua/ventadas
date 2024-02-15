@@ -1,20 +1,24 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-
+// Importaciones de librerias necesarias para el funcionamiento del componente
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductoService } from 'src/app/services/services-producto/producto.service';
 
+//Decorador que define el componente
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.scss']
 })
+// Exportacion de la clase
 export class InicioComponent implements OnInit{
 
+  // Declaracion de variables
   productos: any;
   producto: any [] = [];
   @ViewChild('productContainer')
   productContainer!: ElementRef;
 
+  // Constructor del componente/clase
   constructor(private router: Router,
     private productoService: ProductoService) {
     window.scrollTo({
@@ -22,31 +26,17 @@ export class InicioComponent implements OnInit{
     })
   }
 
+  // Metodo de ciclo de vida del componente
   ngOnInit(): void {
     this.productos = this.productoService.getProductos();
   }
 
+  //Metodo para navegar a otra pagina
   irAproductos() {
     this.router.navigate([('pages/productos')]);
   }
 
-  saveProduct(description: HTMLTextAreaElement, name: HTMLInputElement, price: HTMLInputElement, urlImage: HTMLInputElement) {
-    if (!name.value || !description.value || !price.value) {
-      alert('Llene todos los campos');
-      return false;
-    } else {
-      const product = {
-        name: name.value,
-        description: description.value,
-        price: price.valueAsNumber,
-        urlImage: urlImage.value
-      }
-
-      //this.apiSer.saveProducts(product);
-      return false;
-    }
-  }
-
+  //Metodo scroll que permite manejar el carrusel
   scroll(direction: number): void {
     const container = this.productContainer.nativeElement;
     const containerWidth = container.offsetWidth;
@@ -59,6 +49,7 @@ export class InicioComponent implements OnInit{
     });
   }
 
+  //Metodo que muestra el producto segun sea elegido
   mostrarProductoExistente(id: number) {
     this.router.navigate(['pages/producto', id]);
     this.productoService.getProductoById(id).subscribe({

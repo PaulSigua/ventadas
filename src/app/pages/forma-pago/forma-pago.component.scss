@@ -1,3 +1,4 @@
+//Estilo CSS del componente
 .contenedor-metodo-pago {
     margin: 60px;
     border: 1px solid;
@@ -69,8 +70,13 @@
     }
 
     .contenedor-datos {
-        border: 1px solid #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
         width: 50%;
+        height: auto;
+
     }
 
 }

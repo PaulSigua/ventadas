@@ -1,16 +1,21 @@
+// Importaciones necesarias para el funcionamiento del componente
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CargarProducto, Carrito, DetalleCarrito, Producto } from 'src/app/domain/cliente';
 import { CarritoService } from 'src/app/services/services-carrito/carrito.service';
 import { ProductoService } from 'src/app/services/services-producto/producto.service';
 
+//Decorador que define el componente
 @Component({
   selector: 'app-productos',
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.scss']
 })
+
+//Exportacion de la clase
 export class ProductosComponent implements OnInit {
 
+  //Declaracion de variables
   productos: any;
 
   pro: Producto = new Producto();
@@ -31,6 +36,7 @@ export class ProductosComponent implements OnInit {
 
   categoriaSeleccionada: string | undefined = 'todos';
 
+  //Constructor para la clase
   constructor(private productoService: ProductoService,
     private carritoSer: CarritoService,
     private router: Router) {
@@ -40,6 +46,7 @@ export class ProductosComponent implements OnInit {
     
   }
 
+  //Metodo de ciclo de vida del componente
   ngOnInit(): void {
     this.productos = this.productoService.getProductos();
     window.scrollTo({
@@ -47,11 +54,13 @@ export class ProductosComponent implements OnInit {
     })
   }
 
+  //Metodo que permite controlar el menunav de las categorias
   @HostListener('window:scroll', [])
   windownScroll() {
     this.isScrolled = window.scrollY > 0;
   }
 
+  //Metodo para mostrar las categorias utilizando condiciones
   mostrarCategoria(categoria: string) {
     this.hayResultados = false;
     this.mostrarResultados = false;
@@ -77,6 +86,7 @@ export class ProductosComponent implements OnInit {
     })
   }
 
+  //Metodo para agregar un producto al carrito
   addAlCarrito(pro: Producto) {
     const cargarDet = {
       carrito: this.carrito.codigo,
@@ -94,6 +104,7 @@ export class ProductosComponent implements OnInit {
     console.log(this.cargar);
   }
 
+  //Metodo para buscar un producto existente
   buscar(nombre: HTMLInputElement) {
     this.mostrarResultados = true;
     this.mostrarProductos = false;
@@ -115,6 +126,7 @@ export class ProductosComponent implements OnInit {
     this.ngOnInit();
   }
 
+  //Metodo para mostrar el producto seleccionado
   mostrarProductoExistente(id: number) {
     this.router.navigate(['pages/producto', id]);
     this.productoService.getProductoById(id).subscribe({

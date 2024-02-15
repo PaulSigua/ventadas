@@ -1,3 +1,4 @@
+<!--Codigo HTML del componente-->
 <div class="container-principal">
     <app-menu></app-menu>
 
@@ -6,38 +7,30 @@
         <img src="https://i.pinimg.com/564x/f2/b9/87/f2b9874c4adae66d0dc58743d33c1130.jpg" alt="">
     </div>
 
-    <div class="productos-add">
-        <div class="no-registra-productos" *ngIf="registraProductos">
-            No registra productos
+    <div *ngFor="let detalle of productos" class="producto-container">
+        <div class="imagen-container">
+            <img [src]="detalle.producto.imagen" alt="">
         </div>
-        <h1>Mi Carrito</h1>
-        <div class="producto" *ngFor="let carrito of carritos | async">
+        <div class="producto">
             <div class="nombre-producto">
-                <h2>{{carrito.producto.nombre}}</h2>
+                <h2>{{detalle.producto.nombre}}</h2>
             </div>
-            <div class="contenedor-info-producto">
-                <img src="{{carrito.producto.imagen}}" alt="">
-                <div class="producto-descripcion">
-                    <div class="descripcion">
-                        <b>Descripcion:</b>
-                        <p>
-                            {{carrito.producto.caracteristicas}}
-                        </p>
-                    </div>
-
-                    <div class="cantidad"><b>Cantidad:</b> {{carrito.cantidad}}</div>
-                    <div class="precio"><b>Precio del producto:</b> ${{carrito.precio}}</div>
-                    <div class="subtotal"><b>Subtotal:</b> ${{carrito.subtotal}}</div>
-                    <div class="total"><b>Total + iva:</b> ${{carrito.total}}</div>
-                    <div ></div>
+            <div class="producto-descripcion">
+                <div class="descripcion">
+                    <b>Descripcion:</b>
+                    <p>{{detalle.producto.caracteristicas}}</p>
                 </div>
+                <div class="cantidad"><b>Cantidad:</b> {{detalle.cantidad}}</div>
+                <div class="precio"><b>Precio del producto:</b> ${{detalle.precio}}</div>
+                <div class="subtotal"><b>Subtotal:</b> ${{detalle.subtotal}}</div>
+                <div class="total"><b>Total + iva:</b> ${{detalle.total}}</div>
             </div>
             <div class="btn-eliminar-prodcuto">
-                <button (click)="eliminarProducto(carrito.producto.codigo)">Eliminar producto</button>
+                <button (click)="eliminarProducto(detalle.producto.codigo)">Eliminar producto</button>
             </div>
         </div>
     </div>
-
+    
     <div class="btns">
         <button (click)="comprar()">Comprar</button>
         <button (click)="irAproductos()">Más productos</button>

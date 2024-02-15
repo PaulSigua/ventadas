@@ -1,3 +1,4 @@
+// Estilo CSS para el componente
 .contenedor-atributos {
     margin: 60px;
     border: 1px solid;
@@ -26,33 +27,46 @@
     .contenedor-form {
         display: grid;
         margin-right: 60px;
-        width: 50%;
+        width: 100%;
         text-align: center;
         justify-content: center;
         align-items: center;
 
         form {
-            display: grid;
-            width: auto;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            .contenedor-inputs {
+                display: grid;
+                width: auto;
 
-            input {
-                border-radius: 5px;
-                border: 1px solid #c6c6c6;
-                outline: #b3b3b3;
-                padding: 5px;
-                width: 100%;
+                input {
+                    border-radius: 5px;
+                    border: 1px solid #c6c6c6;
+                    outline: #b3b3b3;
+                    padding: 5px;
+                    width: 100%;
 
-                &:hover {
-                    border: 1px solid #a7a7a7;
+                    &:hover {
+                        border: 1px solid #a7a7a7;
+                    }
                 }
             }
+
+            .contenedor-info {
+                
+                display: grid;
+            }
+
         }
     }
 
 
     .contenedor-datos {
         display: grid;
-        width: 50%;
+        width: auto;
         border: 1px solid #000;
         border-radius: 5px;
         padding: 20px;
@@ -115,8 +129,8 @@ button {
                 margin: 0px;
                 width: auto;
 
-                input{
-                    width: 250px;
+                form {
+                    display: grid;
                 }
             }
 
@@ -125,7 +139,7 @@ button {
                 padding: 5px;
                 margin: 10px;
 
-                .contenedor-productos{
+                .contenedor-productos {
                     width: auto;
                 }
             }
@@ -133,7 +147,7 @@ button {
     }
 }
 
-@media (max-width: 500px) { 
+@media (max-width: 500px) {
     .contenedor-atributos {
         margin: 0px;
         border-radius: 0;

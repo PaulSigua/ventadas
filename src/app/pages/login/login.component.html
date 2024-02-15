@@ -1,3 +1,4 @@
+<!--Codigo HTML del componente-->
 <div class="contenedor-main">
 
     <app-menu></app-menu>
@@ -38,26 +39,37 @@
 
     <div class="contenedor-info-user" *ngIf="mostrarinfo">
         <div class="contenedor-datos">
-            <ul >
-                <div>Nombre: {{usuarioLogueado.nombre}} {{usuarioLogueado.apellido}}</div>
-                <div>Correo: {{usuarioLogueado.correo}}</div>
-                <div>Cedula: {{usuarioLogueado.cedula}}</div>
-                <div></div>
+            <ul>
+                <div>
+                    <h2>{{usuarioLogueado.nombre}} {{usuarioLogueado.apellido}}</h2>
+                </div>
+                <div>{{usuarioLogueado.correo}}</div>
+                <div>{{usuarioLogueado.cedula}}</div>
+                <div class="bnt-logout">
+                    <button (click)="cerrarSesion()">Cerrar Sesion</button>
+                </div>
             </ul>
-        </div>
-
-        <div class="contenedor-texto">
-
         </div>
 
         <div class="contenedor-img">
             <div class="contenedor">
                 <img src="https://i.pinimg.com/564x/6c/bb/9b/6cbb9bf84a9565337be26272e3cf08e9.jpg" alt="">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, eveniet? Eos pariatur rerum asperiores soluta? Cum eligendi officia alias totam voluptatem earum ut ipsam! Repellendus minima soluta officiis labore iste?</p>
+                <p>
+                    <li>Estás a solo un paso de hacerte con lo que realmente quieres. ¡Adelante!</li>
+                    <li>Tu próxima gran aventura comienza con una simple decisión. Haz que cuente.</li>
+                    <li>Cree en el poder de un nuevo comienzo. ¡Tu compra perfecta te espera!</li>
+                    <li>Haz que hoy sea el día en que te acerques un poco más a tus sueños. ¡Continúa tu compra!</li>
+                </p>
             </div>
 
             <div class="contenedor">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto laboriosam fugit, commodi, asperiores illo ipsam voluptatum debitis quidem illum nihil quo provident nemo eaque numquam earum facilis nesciunt eos aliquid.</p>
+                <p>En el fútbol, como en la vida, cada jugada, cada pase y cada gol no son solo momentos de un juego,
+                    sino pasos en el viaje hacia la grandeza. No importa cuántas veces te derriben, siempre tienes la
+                    oportunidad de levantarte, tomar el balón y escribir tu propia historia de determinación, pasión
+                    y triunfo. Así que, cuando mires hacia el campo, recuerda que estás viendo más que un partido;
+                    estás presenciando un reflejo de la vida misma, donde cada esfuerzo cuenta, cada victoria se
+                    celebra,
+                    y cada derrota es solo el principio de un nuevo desafío.</p>
                 <img src="https://i.pinimg.com/564x/90/fe/3b/90fe3b57b4a942c98c383eab189eb751.jpg" alt="">
             </div>
         </div>

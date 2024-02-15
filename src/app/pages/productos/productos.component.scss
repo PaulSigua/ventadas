@@ -1,3 +1,4 @@
+//Estilo CSS del componente
 .categorias {
     display: flex;
     justify-content: center;
@@ -111,6 +112,7 @@
             background-color: #ffcbcb;
             border: 1px solid #ff0000;
             text-align: center;
+
             h4 {
                 color: #ff4343;
             }
@@ -170,7 +172,7 @@
                 a {
                     cursor: pointer;
                 }
-                
+
                 &:hover {
                     border: 1px solid rgb(181, 181, 181);
                     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
@@ -257,6 +259,18 @@
             .contenedor-listas {
                 margin: 0;
                 padding: 0;
+
+                .productos {
+
+                    height: 500px;
+                    .contenedor-img {
+                        
+                        img {
+                            width: 300px;
+                            height: 280px;
+                        }
+                    }
+                }
             }
 
         }

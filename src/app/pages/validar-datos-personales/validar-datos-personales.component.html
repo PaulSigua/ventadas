@@ -7,35 +7,41 @@
         <div class="contenedor-info">
             <div class="contenedor-form">
                 <form action="">
-                    <h3>Datos personales</h3>
-                    <td><label for="">Ingrese su número de cédula</label></td>
-                    <td><input type="text" name="id" id="" #cedula placeholder="cédula"></td>
+                    <div class="contenedor-inputs">
+                        <h3>Datos personales</h3>
+                        <td><label for="">Ingrese su número de cédula</label></td>
+                        <td><input type="text" name="id" id="" #cedula placeholder="cédula"></td>
 
-                    <td><label for="">Ingrese su nombre</label></td>
-                    <td><input type="text" name="name" id="" #nombre placeholder="nombre"></td>
+                        <td><label for="">Ingrese su nombre</label></td>
+                        <td><input type="text" name="name" id="" #nombre placeholder="nombre"></td>
 
-                    <td><label for="">Ingrese su correo electrónico</label></td>
-                    <td><input type="text" name="email" id="" #correo placeholder="correo"></td>
+                        <td><label for="">Ingrese su correo electrónico</label></td>
+                        <td><input type="text" name="email" id="" #correo placeholder="correo"></td>
 
-                    <td><label for="">Ingrese la contraseña</label></td>
-                    <td><input type="password" name="password" id="" #contrasenia placeholder="contraseña"></td>
+                        <td><label for="">Ingrese la contraseña</label></td>
+                        <td><input type="password" name="password" id="" #contrasenia placeholder="contraseña"></td>
 
 
-                    <div class="contenedor-datos">
-                        <div class="contenedor-productos" *ngFor="let det of productos | async">
-                            <div><b>{{det.nombreProducto}}</b></div>
-                            <div>Cantidad: {{det.cantidad}}</div>
-                            <div>Subtotal: ${{det.subtotal}}</div>
-                            <div>Total: ${{det.total}}</div>
+                    </div>
+
+                    <div class="contenedor-info">
+                        <div class="contenedor-productos" *ngFor="let detalle of productos">
+                            <div><b>{{detalle.producto.nombre}}</b></div>
+                            <div>Cantidad: {{detalle.cantidad}}</div>
+                            <div>Subtotal: ${{detalle.subtotal}}</div>
+                            <div>Total: ${{detalle.total}}</div>
                         </div>
-                    </div>
-                    <div class="pago-final"><b>
-                            <h3>Valor a pagar: ${{total}}</h3>
-                        </b></div>
 
-                    <div class="continuar-pago">
-                        <button (click)="continuar(cedula, nombre, correo, contrasenia)">Continuar</button>
+
+                        <div class="contenedor-confirm">
+
+                            <div class="continuar-pago">
+                                <button (click)="continuar(cedula, nombre, correo, contrasenia)">Continuar</button>
+                            </div>
+                        </div>
+
                     </div>
+
                 </form>
             </div>
         </div>
