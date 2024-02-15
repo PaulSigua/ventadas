@@ -26,12 +26,12 @@
                 <div class="total"><b>Total + iva:</b> ${{detalle.total}}</div>
             </div>
             <div class="btn-eliminar-prodcuto">
-                <button (click)="eliminarProducto(detalle.producto.codigo)">Eliminar producto</button>
+                <button (click)="eliminarProducto(detalle.codigo)">Eliminar producto</button>
             </div>
         </div>
     </div>
     
-    <div class="btns">
+    <div class="btns" *ngIf="mostrarBotones">
         <button (click)="comprar()">Comprar</button>
         <button (click)="irAproductos()">Más productos</button>
     </div>

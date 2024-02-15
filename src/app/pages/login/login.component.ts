@@ -14,7 +14,7 @@ import { CuentaService } from 'src/app/services/services-cuenta/cuenta.service';
 // Exportacion de la clase
 export class LoginComponent implements OnInit {
 
-// Declaracion de variables
+  // Declaracion de variables
   ocurrioUnError: boolean = false;
   loginForm: FormGroup;
   usuarioLogueado: any;
@@ -57,15 +57,19 @@ export class LoginComponent implements OnInit {
 
   //Metodo para iniciar sesion
   login() {
-    if (this.loginForm.valid) {
-      this.cuentaService.cambiarEstado(this.loginForm.value).subscribe(data => {
-        console.log(data.codigo)
-        this.usuarioLogueado = data;
-        this.router.navigate([('/pages/inicio')])
-        this.ocurrioUnError = false;
-        console.log('login exitoso' + data);
+    if (this.loginForm.pristine || this.loginForm.invalid) {
+      alert('Por favor, complete el formulario antes de enviarlo.');
+    } else {
+      if (this.loginForm.value) {
+        this.cuentaService.cambiarEstado(this.loginForm.value).subscribe(data => {
+
+          console.log(data.codigo)
+          this.usuarioLogueado = data;
+          this.ocurrioUnError = false;
+          console.log('login exitoso' + data);
+          window.location.reload();
+        });
       }
-      )
     }
   }
 
@@ -75,8 +79,8 @@ export class LoginComponent implements OnInit {
   };
 
   //Metodo para cerrar sesion del usuario
-  cerrarSesion(){
-    this.cuentaService.obtenerUsuarioLogOut().subscribe (
+  cerrarSesion() {
+    this.cuentaService.obtenerUsuarioLogOut().subscribe(
       data => {
         console.log(data);
       }

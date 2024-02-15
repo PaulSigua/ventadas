@@ -20,7 +20,7 @@ export class CarritoComponent implements OnInit {
   registraProductos: boolean = false;
   isLoggedIn: boolean = false;
   usuarioLogueado: any;
-
+  mostrarBotones: boolean = true;
   productos: any[] = [];
 
   //constructor de la clase
@@ -58,7 +58,7 @@ export class CarritoComponent implements OnInit {
 
   //Metodo para eliminar un producto del detalleCarrito
   eliminarProducto(codigo: number) {
-    this.carritoService.eliminarDetalle(codigo).pipe(
+    this.carritoService.eliminarProducto(codigo).pipe(
       catchError(error => {
         console.error('Ocurrió un error al eliminar el detalle: ', error);
         return of(null);

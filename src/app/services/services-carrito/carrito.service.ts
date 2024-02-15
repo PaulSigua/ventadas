@@ -23,11 +23,24 @@ export class CarritoService {
     return this.http.get<any>(url);
   }
 
-  //Metodo para eliminar el detalle a traves de un codigo
-  eliminarDetalle(codigo: number): Observable<any>{
+  eliminarProducto(codigo: number): Observable<any>{
     let url = environment.WA_PATH + '/detallesCarrito?codigo=' + codigo;
     console.log(url);
     return this.http.delete<any>(url);
+  }
+
+  //Metodo para eliminar el detalle a traves de un codigo
+  eliminarDetalle(codigo: number): Observable<any>{
+    let url = environment.WA_PATH + '/carrito/limpiar-carrito';
+    console.log(url);
+    let body = { codigo_fac: codigo }; // Asegúrate de que este objeto coincida con la estructura esperada por tu backend
+  return this.http.post<any>(url, body);
+  }
+
+  // Obtenemos un carrito a traves del codigo de usuario
+  getCarritoPorUsuario(codigo: number){
+    let url = environment.WA_PATH + '/carrito?codigo=' + codigo;
+    return this.http.get<any>(url);
   }
 
 }

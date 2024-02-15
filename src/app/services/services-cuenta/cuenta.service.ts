@@ -64,12 +64,15 @@ export class CuentaService {
 
   nombreUsuario: string = "";
 
+  //Actualizamos el nombre de usuario
   actualizarNombreUsuario(nombre: string, apellido: string) {
     this.nombreUsuario = nombre+ ' ' + apellido;
   }
 
-  getUsuarioLogeado(): Usuario | null {
-    return this.usuarioLogeado;
+  //Creamos la factura
+  crearFactura(codigo: number){
+    let url = environment.WA_PATH + '/carrito/limpiar-carrito'
+    return this.http.post<any>(url, codigo);
   }
 
 }

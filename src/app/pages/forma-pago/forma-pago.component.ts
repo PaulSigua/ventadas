@@ -1,6 +1,8 @@
 // Importaciones de librerias necesarias para el funcionamiento del componente
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CarritoService } from 'src/app/services/services-carrito/carrito.service';
+import { CuentaService } from 'src/app/services/services-cuenta/cuenta.service';
 
 //Decorador que define el componente
 @Component({
@@ -10,13 +12,26 @@ import { Router } from '@angular/router';
 })
 
 // Exportacion de la clase
-export class FormaPagoComponent {
+export class FormaPagoComponent implements OnInit {
+
+  usuarioLogueado: any;
+  carrito: any;
 
   // Constructor del componente/clase
-  constructor (private router: Router) {
+  constructor (private router: Router,
+    private cuentSer: CuentaService,
+    private carritoSer: CarritoService) {
     window.scrollTo({
       top: 0
     })
+  }
+
+  ngOnInit(): void {
+    this.cuentSer.obtenerUsuarioLogueado().subscribe(usuario => {
+      this.usuarioLogueado = usuario;
+    }, error => {
+      console.error("No se pudo obtener el usuario logueado", error);
+    });
   }
 
   //Metodo continuar que valida los datos ingresados y permite finalizar la compra
@@ -53,7 +68,17 @@ export class FormaPagoComponent {
     // Continuar con la acción deseada si los campos pasan la validación
     this.router.navigate(['/pages/agradecimiento']);
 
-    
+    this.cuentSer.obtenerUsuarioLogueado().subscribe(usuario => {
+      this.usuarioLogueado = usuario;
+      console.log(this.usuarioLogueado);
+      console.log(this.usuarioLogueado.codigo);
+      if (this.usuarioLogueado) {
+        this.carritoSer.eliminarDetalle(this.usuarioLogueado.codigo)
+          .subscribe(carrito => {
+            console.log(carrito.detalles)
+          });
+      }
+    });
 
   }
 
