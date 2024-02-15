@@ -43,6 +43,13 @@
                     </div>
 
                 </form>
+
+                <div class="contenedor-mensajes" *ngIf="datosErroneos">
+                    <h4>Sus credendiales no coinciden</h4>
+                </div>
+                <div class="contenedor-mensajes" *ngIf="camposVacios">
+                    <h4>Debe ingresar toda su información</h4>
+                </div>
             </div>
         </div>
     </div>

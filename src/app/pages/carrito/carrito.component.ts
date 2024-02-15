@@ -22,6 +22,7 @@ export class CarritoComponent implements OnInit {
   usuarioLogueado: any;
   mostrarBotones: boolean = true;
   productos: any[] = [];
+  count: number = 1;
 
   //constructor de la clase
   constructor(private router: Router,
@@ -34,6 +35,7 @@ export class CarritoComponent implements OnInit {
 
   //Metodo de ciclo de vida del componente
   ngOnInit(): void {
+    this.mostrarBotones = false;
     this.cuentaService.obtenerUsuarioLogueado().subscribe(usuario => {
       this.usuarioLogueado = usuario;
       console.log(this.usuarioLogueado);
@@ -41,6 +43,7 @@ export class CarritoComponent implements OnInit {
       if (this.usuarioLogueado) {
         this.carritoService.getDetallesCarrito(this.usuarioLogueado.codigo)
           .subscribe(carrito => {
+            this.mostrarBotones = true;
             console.log(carrito.detalles)
             this.productos = carrito.detalles; // Asignar solo los detalles de los productos
             this.registraProductos = this.productos.length === 0; // Verificar si hay productos registrados
@@ -48,7 +51,17 @@ export class CarritoComponent implements OnInit {
       }
     });
     this.isLoggedIn = this.cuentaService.isLoggedIn;
+  }
 
+  increment() {
+    this.count++;
+  }
+
+  //Metodo para disminuir la cantidad del producto
+  decrement() {
+    if (this.count > 1) {
+      this.count--;
+    }
   }
 
   //Metodo para navegar a otra pagina

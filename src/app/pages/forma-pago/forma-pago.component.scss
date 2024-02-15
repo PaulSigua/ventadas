@@ -21,7 +21,8 @@
 
     .contenedor-form {
         display: grid;
-        margin-right: 60px;
+        padding-left: 40px;
+        padding-right: 40px;
         width: 50%;
 
         form {
@@ -132,22 +133,27 @@
         margin: 0;
         border: 0;
 
-        .contenedor-info .contenedor-form form {
-            width: auto;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+        .contenedor-info {
+            margin-top: 15px;
 
-            input {
-                width: 300px;
-            }
+            .contenedor-form {
+                padding: 0;
+                width: auto;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
 
-            .contenedor-secundario-form {
-                display: grid;
+                input {
+                    width: 250px;
+                }
 
-                .form-grupo {
-                    input {
-                        width: 200px;
+                .contenedor-secundario-form {
+                    display: grid;
+
+                    .form-grupo {
+                        input {
+                            width: 250px;
+                        }
                     }
                 }
             }

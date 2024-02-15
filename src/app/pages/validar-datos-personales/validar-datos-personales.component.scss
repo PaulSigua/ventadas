@@ -22,7 +22,7 @@
 
 .contenedor-info {
     display: flex;
-    margin: 40px;
+    margin: 20px;
 
     .contenedor-form {
         display: grid;
@@ -38,6 +38,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+
             .contenedor-inputs {
                 display: grid;
                 width: auto;
@@ -56,10 +57,26 @@
             }
 
             .contenedor-info {
-                
+                border: 1px solid #000000;
                 display: grid;
+                border-radius: 5px;
+                padding: 20px;
             }
 
+        }
+
+        .contenedor-mensajes {
+            background-color: #ffcfcf;
+            border: 1px solid #ffa7a7;
+            text-align: center;
+            border-radius: 5px;
+
+            h4 {
+                color: #ff4545;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+            }
         }
     }
 

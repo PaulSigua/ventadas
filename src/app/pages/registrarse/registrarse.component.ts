@@ -13,7 +13,7 @@ import { CuentaService } from 'src/app/services/services-cuenta/cuenta.service';
 })
 
 //Exportacion de la clase
-export class RegistrarseComponent{
+export class RegistrarseComponent {
 
   //Declaracion de variables
   ocurrioUnError: boolean = false;
@@ -24,21 +24,29 @@ export class RegistrarseComponent{
   //Metodo constructor del componente
   constructor(private cuentaService: CuentaService,
     private router: Router,
-    private carritoSer: CarritoService){
+    private carritoSer: CarritoService) {
     window.scrollTo({
       top: 0
     })
   }
 
   //Metodo para registrar a los usuarios
-  registrarse(nombre: HTMLInputElement, apellido: HTMLInputElement, correo: HTMLInputElement, cedula: HTMLInputElement, contrasenia: HTMLInputElement, confirmarContrasenia: HTMLInputElement){
+  registrarse(nombre: HTMLInputElement, apellido: HTMLInputElement, correo: HTMLInputElement, cedula: HTMLInputElement, contrasenia: HTMLInputElement, confirmarContrasenia: HTMLInputElement) {
 
     //condicion que valida los espacios (inputs)
-    if(!nombre.value || !apellido.value || !correo.value || !cedula.value || !contrasenia.value || !confirmarContrasenia.value) {
+    if (!nombre.value || !apellido.value || !correo.value || !cedula.value || !contrasenia.value || !confirmarContrasenia.value) {
       this.ocurrioUnError = true;
       this.ocurrioUnErrorContrasenia = false;
       this.todoBien = false;
+    } else if (contrasenia.value !== confirmarContrasenia.value) {
+      this.ocurrioUnError = false;
+      this.ocurrioUnErrorContrasenia = true;
+      this.todoBien = false;
     } else {
+
+      this.ocurrioUnError = false;
+      this.ocurrioUnErrorContrasenia = false;
+      this.todoBien = true;
 
       const cuenta = {
         nombre: nombre.value,
@@ -70,7 +78,7 @@ export class RegistrarseComponent{
   }
 
   //Metodo para navegar a otro componente (Cuenta)
-  irAlogin(){
+  irAlogin() {
     this.router.navigate([('/pages/cuenta')])
   }
 

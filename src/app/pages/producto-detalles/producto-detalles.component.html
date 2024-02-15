@@ -37,8 +37,8 @@
             </div>
 
 
-        <div class="contenedor-botones">
-
+        <div class="contenedor-mensaje" *ngIf="mostrarMensaje">
+            <h4>Debe iniciar sesión o registrarse para cargar un producto a su carrito <button [routerLink]="'/pages/cuenta'">Iniciar sesion</button></h4>
         </div>
 
         <div class="contenedor-mas-productos">

@@ -58,7 +58,8 @@ export class LoginComponent implements OnInit {
   //Metodo para iniciar sesion
   login() {
     if (this.loginForm.pristine || this.loginForm.invalid) {
-      alert('Por favor, complete el formulario antes de enviarlo.');
+      this.ocurrioUnError = false;
+      this.ocurrioUnError = true;
     } else {
       if (this.loginForm.value) {
         this.cuentaService.cambiarEstado(this.loginForm.value).subscribe(data => {

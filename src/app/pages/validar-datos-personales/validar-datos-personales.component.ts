@@ -22,6 +22,8 @@ export class ValidarDatosPersonalesComponent implements OnInit {
   total: number = 0;
 
   usuarioLogueado: any;
+  datosErroneos: boolean = false;
+  camposVacios: boolean = false;
 
   //Constructor para el componente
   constructor(private carritoService: CarritoService,
@@ -47,22 +49,23 @@ export class ValidarDatosPersonalesComponent implements OnInit {
       }
     });
   }
-  
+
   //Metodo que permite continuar con la adquisicion de productos a traves de una validacion de los datos alamacenados
   // en la base de datos
   continuar(cedula: HTMLInputElement, nombre: HTMLInputElement, correo: HTMLInputElement, contrasenia: HTMLInputElement) {
-    // Validar los datos ingresados con los datos del usuario logueado
-
     //Condicion que valida que el usuario este logueadp
     if (this.usuarioLogueado) {
-      if(!cedula.value || !nombre.value || !correo.value || !contrasenia.value){
-        alert("Debe rellenar todos los campos");
+          // Validar los datos ingresados con los datos del usuario logueado
+      if (!cedula.value || !nombre.value || !correo.value || !contrasenia.value) {
+        this.datosErroneos = false;
+        this.camposVacios = true;
       } else {
-        if (cedula.value == this.usuarioLogueado.cedula && nombre.value == this.usuarioLogueado.nombre 
+        if (cedula.value == this.usuarioLogueado.cedula && nombre.value == this.usuarioLogueado.nombre
           && correo.value == this.usuarioLogueado.correo && contrasenia.value == this.usuarioLogueado.contrasenia) {
-            this.router.navigate([('/pages/forma-pago')])
+          this.router.navigate([('/pages/forma-pago')])
         } else {
-          alert("Sus datos no coinciden")
+          this.datosErroneos = true;
+          this.camposVacios = false;
         }
       }
     }

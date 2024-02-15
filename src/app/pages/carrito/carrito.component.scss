@@ -32,8 +32,10 @@
     border: 1px solid #c2c2c2;
 
     .imagen-container {
+        justify-content: center;
+        align-items: center;
         img {
-            width: 400px;
+            width: 250px;
             height: auto;
         }
     }
@@ -44,6 +46,8 @@
         align-items: center;
         padding-left: 30px;
         padding-right: 30px;
+        width: 250px;
+        height: auto;
         border: 1px solid #c2c2c2;
         margin: 10px;
         border-radius: 10px;
