@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, empty, finalize, isEmpty, of } from 'rxjs';
@@ -48,25 +49,23 @@ export class CarritoComponent implements OnInit {
     this.router.navigate([('/pages/productos')]);
   }
 
-  eliminarProducto(codigo: number) {
-    this.carritoService.eliminarDetalle(codigo).pipe(
-      catchError(error => {
-        console.error('Ocurrió un error al eliminar el detalle: ', error);
-        return of(null);
-      }),
-      finalize(() => {
-        this.ngOnInit();
-      })
-    ).subscribe(data => {
-      console.log('Producto eliminado: ', data);
-      // Aquí puedes agregar cualquier lógica adicional que necesites
-    });
-  
-    // No es necesario llamar a this.ngOnInit() aquí
-    window.scrollTo({
-      top: 300
-    });
+  borrarDetalleCarrito(codigo: number): void {
+    this.carritoService.eliminarDetalle(codigo)
+      .subscribe(
+        () => {
+          console.log('Detalle del carrito eliminado correctamente');
+          // Aquí puedes agregar lógica adicional después de borrar el detalle del carrito
+        },
+        error => {
+          console.error('Error al eliminar el detalle del carrito', error);
+          // Aquí puedes manejar el error de acuerdo a tus necesidades
+        }
+      );
   }
+  
+  
+  
+  
   
 
   comprar() {

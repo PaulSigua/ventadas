@@ -19,7 +19,7 @@ export class CarritoService {
   }
 
   eliminarDetalle(codigo: number): Observable<any>{
-    let url = environment.WA_PATH + '/detallesCarrito?codigo=' + codigo;
+    let url = environment.WA_PATH + '/detallesCarrito/borrar-detalle?codigo=' + codigo;
     console.log(url);
     return this.http.delete<any>(url);
   }
