@@ -30,10 +30,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
 import { AgradecimientoComponent } from './pages/agradecimiento/agradecimiento.component';
 
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore, enableIndexedDbPersistence } from '@angular/fire/firestore';
 import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from './environments/environments';
 import { ServiceWorkerModule } from '@angular/service-worker';
