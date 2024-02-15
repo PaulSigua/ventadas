@@ -1,27 +1,43 @@
 # Ventadas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
+Este proyecto se creo con el objetivo de realizar un pagina web de carrito de compras amigable para los usuarios enfocandonos en llevar un orden en los conponentes y servicios para cumplir con el objetivo propuesto. Este proyecto lleva implementado un estilo scss y html interactivo con los usuarios mediante el uso de herramientas como el side nav y el PWA.
 
-## Development server
+# Principales caracteristicas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Crear una pagina responsiva y amigable para los usuarios
 
-## Code scaffolding
+2. Implementacion de PWA y excepciones para controlar las acciones del usuario y mostrarle un enfoque mas profesional
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+3. Manejar un fronted implementado a traves del angular 17.2.0
 
-## Build
+4. Manejar servicios para la conexion del fronted con el backend
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+5. Crear un routing para la pagina a traves de firebase.
 
-## Running unit tests
+# Requisitos Previos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Instalacion de las siguientes herramientas
 
-## Running end-to-end tests
+Node.js (versión recomendada: 14.x o superior)
+Angular CLI (versión 17.2.0)
+Firebase CLI (para despliegue y manejo de routing)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+# Implementación de PWA
+Para habilitar PWA en tu aplicación Angular, asegúrate de haber ejecutado:
 
-## Further help
+bash
+Copy code
+ng add @angular/pwa
+Esto configurará tu aplicación con los archivos necesarios para funcionar como una PWA, incluyendo el manifest y el service worker.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Manejo de Errores
+Implementa interceptores HTTP y servicios dedicados para manejar las excepciones y errores de forma centralizada. Esto permite mostrar mensajes de error amigables al usuario.
+
+# Servicios para Backend
+Utiliza el módulo HttpClient de Angular para consumir APIs y conectar con el backend. Crea servicios Angular que encapsulen las llamadas al API y su lógica.
+
+# Routing con Firebase
+Para configurar el routing de tu SPA (Single Page Application) con Firebase:
+
+Configura las reglas de Firebase Hosting en firebase.json para redirigir todas las solicitudes a tu archivo index.html.
+Utiliza el RouterModule de Angular para definir las rutas de tu aplicación.
