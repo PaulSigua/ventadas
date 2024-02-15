@@ -17,8 +17,7 @@ export class RegistrarseComponent implements OnInit{
   cue: Usuario = new Usuario();
 
   constructor(private cuentaService: CuentaService,
-    private router: Router,
-    private carritoSer: CarritoService){
+    private router: Router){
     window.scrollTo({
       top: 0
     })

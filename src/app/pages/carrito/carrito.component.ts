@@ -16,6 +16,8 @@ export class CarritoComponent implements OnInit {
   isLoggedIn: boolean = false;
   usuarioLogueado: any;
 
+  productos: any[] = [];
+
   constructor(private router: Router,
     private carritoService: CarritoService,
     private cuentaService: CuentaService) {
@@ -25,16 +27,22 @@ export class CarritoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cuentaService.obtenerUsuarioLogueado().subscribe(usuario => {
+      this.usuarioLogueado = usuario;
+      console.log(this.usuarioLogueado);
+      console.log(this.usuarioLogueado.codigo);
+      if (this.usuarioLogueado) {
+        this.carritoService.getDetallesCarrito(this.usuarioLogueado.codigo)
+          .subscribe(carrito => {
+            console.log(carrito.detalles)
+            this.productos = carrito.detalles; // Asignar solo los detalles de los productos
+            this.registraProductos = this.productos.length === 0; // Verificar si hay productos registrados
+          });
+      }
+    });
     this.isLoggedIn = this.cuentaService.isLoggedIn;
-    this.carritos = this.carritoService.getDetallesCarrito();
-    this.isLoggedIn = this.cuentaService.isLoggedIn;
-    if (this.carritos == isEmpty) {
-      this.registraProductos == true
-    } else {
-      this.registraProductos = false
-    }
-
   }
+  
 
   irAproductos() {
     this.router.navigate([('/pages/productos')]);

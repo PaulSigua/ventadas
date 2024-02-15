@@ -49,12 +49,13 @@ export class Carrito {
 
 export class DetalleCarrito {
     codigo?: number;
-    carrito?: Carrito;
-    producto?: Producto;
+    producto?: number;
+    nombreProducto?: string;
     cantidad?: number;
-    precio?: number;
-    subtotal?: number;
     total?: number;
+    subtotal?: number;
+    imagen?: string;
+    caracteristica?: string;
 }
 
 export class CargarProducto {

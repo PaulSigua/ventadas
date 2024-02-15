@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   carrito: any;
 
   constructor(private cuentaService: CuentaService,
-    private carritoSer: CarritoService,
     private fb: FormBuilder,
     private router: Router) {
     window.scrollTo({

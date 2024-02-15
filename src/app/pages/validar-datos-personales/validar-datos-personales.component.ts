@@ -32,11 +32,12 @@ export class ValidarDatosPersonalesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productos = this.carritoService.getDetallesCarrito();
-    this.usuarioLogueado = this.cuentaService.getUsuarioLogeado();
+    this.usuarioLogueado = this.cuentaService.obtenerUsuarioLogueado();
     this.cuentaService.obtenerUsuarioLogueado().subscribe(usuario => {
       this.usuarioLogueado = usuario;
       if(this.usuarioLogueado = usuario){
+        this.productos = this.carritoService.getDetallesCarrito(usuario.codigo);
+        console.log("jisdbkldsbafkbadshf_____________________________-haskjlfhashfkljashflkjahflkjashfjk"+usuario.codigo)
       }
     })
 

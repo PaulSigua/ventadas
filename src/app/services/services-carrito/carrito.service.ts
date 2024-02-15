@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environments';
-import { Carrito, Producto } from '../../domain/cliente';
+import { DetalleCarrito, Producto } from '../../domain/cliente';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,8 +11,10 @@ export class CarritoService {
 
   constructor(private http: HttpClient) { }
 
-  getDetallesCarrito(){
-    let url = environment.WA_PATH + '/carrito/list/detalles'
+  getDetallesCarrito(codigo: number){
+    console.log(codigo);
+    let url = environment.WA_PATH + '/carrito?codigo='+codigo
+    console.log(url);
     return this.http.get<any>(url);
   }
 
@@ -26,5 +28,6 @@ export class CarritoService {
     let url = environment.WA_PATH + '/detallesCarrito/calcular?total=1';
     return this.http.get<any>(url);
   }
+
 
 }

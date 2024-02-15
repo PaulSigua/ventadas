@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CargarProducto, DetalleCarrito, Producto } from 'src/app/domain/cliente';
+import { CargarProducto, Carrito, DetalleCarrito, Producto } from 'src/app/domain/cliente';
 import { ProductoService } from 'src/app/services/services-producto/producto.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class ProductoDetallesComponent implements OnInit{
   pro: Producto = new Producto();
   cargar: CargarProducto = new CargarProducto();
   det: DetalleCarrito = new DetalleCarrito();
+  car: Carrito = new Carrito();
   count: number = 1;
 
   constructor (private productoService: ProductoService,
@@ -56,7 +57,7 @@ export class ProductoDetallesComponent implements OnInit{
 
   addAlCarrito(pro: Producto) {
     const cargarDet = {
-      carrito: 1,
+      carrito: this.car.codigo,
       producto: pro.codigo,
       cantidad: this.count
     }

@@ -11,29 +11,29 @@
             No registra productos
         </div>
         <h1>Mi Carrito</h1>
-        <div class="producto" *ngFor="let carrito of carritos | async">
+        <div class="producto" *ngFor="let producto of productos">
             <div class="nombre-producto">
-                <h2>{{carrito.producto.nombre}}</h2>
+                <h2>{{producto.nombre}}</h2>
             </div>
             <div class="contenedor-info-producto">
-                <img src="{{carrito.producto.imagen}}" alt="">
+                <img src="{{producto.imagen}}" alt="">
                 <div class="producto-descripcion">
                     <div class="descripcion">
                         <b>Descripcion:</b>
                         <p>
-                            {{carrito.producto.caracteristicas}}
+                            {{producto.detalle}}
                         </p>
                     </div>
 
-                    <div class="cantidad"><b>Cantidad:</b> {{carrito.cantidad}}</div>
-                    <div class="precio"><b>Precio del producto:</b> ${{carrito.precio}}</div>
-                    <div class="subtotal"><b>Subtotal:</b> ${{carrito.subtotal}}</div>
-                    <div class="total"><b>Total + iva:</b> ${{carrito.total}}</div>
+                    <div class="cantidad"><b>Cantidad:</b> {{producto.cantidad}}</div>
+                    <div class="precio"><b>Precio del producto:</b> ${{producto.precio}}</div>
+                    <div class="subtotal"><b>Subtotal:</b> ${{producto.subtotal}}</div>
+                    <div class="total"><b>Total + iva:</b> ${{producto.total}}</div>
                     <div ></div>
                 </div>
             </div>
             <div class="btn-eliminar-prodcuto">
-                <button (click)="eliminarProducto(carrito.producto.codigo)">Eliminar producto</button>
+                <button (click)="eliminarProducto(producto.codigo)">Eliminar producto</button>
             </div>
         </div>
     </div>
