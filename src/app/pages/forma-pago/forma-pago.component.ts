@@ -18,6 +18,8 @@ export class FormaPagoComponent implements OnInit {
   usuarioLogueado: any;
   carrito: any;
   codigo: any;
+  datosErroneos: boolean = false;
+  camposVacios: boolean = false;
 
   // Constructor del componente/clase
   constructor(private router: Router,
@@ -44,21 +46,21 @@ export class FormaPagoComponent implements OnInit {
     const fechaVencimiento = (document.getElementById('fechaVencimiento') as HTMLInputElement).value;
     const codigoSeguridad = (document.getElementById('codigoSeguridad') as HTMLInputElement).value;
 
-    /*// Validar el número de tarjeta usando el algoritmo de Luhn
+    // Validar el número de tarjeta usando el algoritmo de Luhn
     if (!this.validarNumeroTarjeta(numeroTarjeta)) {
-      alert('El número de tarjeta no es válido.');
+      this.datosErroneos = true;
       return;
-    }*/
+    }
 
     // Validar la fecha de vencimiento
     if (!this.validarFechaVencimiento(fechaVencimiento)) {
-      alert('La fecha de vencimiento no es válida.');
+      this.datosErroneos = true;
       return;
     }
 
     // Validar el código de seguridad
     if (!this.validarCodigoSeguridad(codigoSeguridad)) {
-      alert('El código de seguridad no es válido.');
+      this.datosErroneos = true;
       return;
     }
 
@@ -69,9 +71,7 @@ export class FormaPagoComponent implements OnInit {
     localStorage.setItem('codigoSeguridad', codigoSeguridad);
 
     // Continuar con la acción deseada si los campos pasan la validación
-    //this.router.navigate(['/pages/agradecimiento']);
-
-
+    this.router.navigate(['/pages/agradecimiento']);
 
     this.cuentSer.obtenerUsuarioLogueado().subscribe(usuario => {
       this.usuarioLogueado = usuario;

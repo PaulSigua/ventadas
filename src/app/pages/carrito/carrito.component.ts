@@ -79,15 +79,17 @@ export class CarritoComponent implements OnInit {
       finalize(() => {
         this.ngOnInit();
       })
-    ).subscribe(data => {
-      console.log('Producto eliminado: ', data);
-      // Aquí puedes agregar cualquier lógica adicional que necesites
+    ).subscribe(response => {
+      try {
+        // Intenta analizar la respuesta como JSON
+        const data = JSON.parse(response);
+        console.log('Producto eliminado: ', data);
+      } catch (e) {
+        // Si no se puede analizar como JSON, muestra el mensaje como texto plano
+        console.log('Mensaje de respuesta:', response);
+      }
     });
-
-    // No es necesario llamar a this.ngOnInit() aquí
-    window.scrollTo({
-      top: 300
-    });
+    
   }
 
   //Metodo para iniciar la compra de los prodcutos

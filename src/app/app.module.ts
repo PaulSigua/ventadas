@@ -35,6 +35,7 @@ import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from './environments/environments';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 
 @NgModule({
@@ -68,6 +69,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    AngularFirestoreModule.enablePersistence(),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     AngularFireModule.initializeApp((environment.firebaseConfig)),

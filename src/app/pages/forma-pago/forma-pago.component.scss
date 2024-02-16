@@ -101,6 +101,21 @@
             color: #000000;
         }
     }
+
+    
+    .contenedor-mensajes {
+        background-color: #ffcfcf;
+        border: 1px solid #ffa7a7;
+        text-align: center;
+        border-radius: 5px;
+
+        h4 {
+            color: #ff4545;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+    }
 }
 
 @media (max-width: 1100px) {

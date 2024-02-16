@@ -23,9 +23,9 @@ export class CarritoService {
     return this.http.get<any>(url);
   }
 
+  //Metodo para eliminar un producto existente en el carrito
   eliminarProducto(codigo: number): Observable<any>{
-    let url = environment.WA_PATH + '/detallesCarrito?codigo=' + codigo;
-    console.log(url);
+    let url = environment.WA_PATH + '/detallesCarrito/' + codigo;
     return this.http.delete<any>(url);
   }
 
